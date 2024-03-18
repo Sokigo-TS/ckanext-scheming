@@ -1,0 +1,268 @@
+scheming_version: 2
+dataset_type: dataset
+about: A reimplementation of the default CKAN dataset schema
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+dataset_fields:
+
+- field_name: title
+  label:
+    sv: Titel
+    en: Title
+  preset: title
+  form_placeholder: 
+    sv: t.ex. en beskrivande titel
+    en: eg. A descriptive title
+
+- field_name: name
+  label: URL
+  preset: dataset_slug
+  form_placeholder: 
+    sv: t.ex. mitt-dataset
+    en: eg. my-dataset
+
+- field_name: notes
+  label:
+    sv: Sammanfattning  
+    en: Description
+  form_snippet: markdown.html
+  form_placeholder:
+    sv: t.ex. Några rader om datasetet  
+    en: eg. Some useful notes about the data
+
+- field_name: tag_string
+  label:
+    sv: Nyckelord  
+    en: Tags
+  preset: tag_string_autocomplete
+  form_placeholder: 
+    sv: t.ex. ekonomi, psykisk hälsa, offentlig sektor
+    en: eg. economy, mental health, government
+
+- field_name: license_id
+  label:
+    sv: Licens  
+    en: License
+  form_snippet: license.html
+  help_text: License definitions and additional information can be found at http://opendefinition.org/
+
+- field_name: owner_org
+  label: Organization
+  preset: dataset_organization
+
+- field_name: url
+  label: Source
+  form_placeholder: http://example.com/dataset.json
+  display_property: foaf:homepage
+  display_snippet: link.html
+
+- field_name: version
+  label: Version
+  validators: ignore_missing unicode_safe package_version_validator
+  form_placeholder: '1.0'
+
+- field_name: author
+  label: 
+    sv: Metadataägare
+    en: Metadata Owner
+  form_placeholder: Joe Bloggs
+  display_property: dc:creator
+
+- field_name: author_email
+  label: 
+    sv: E-post till metadataägare
+    en: Metadata Owner Email
+  form_placeholder: joe@example.com
+  display_property: dc:creator
+  display_snippet: email.html
+  display_email_name_field: author
+
+- field_name: maintainer
+  label:   
+    sv: Metadatakontakt
+    en: Metadata Contact
+  form_placeholder: Joe Bloggs
+  display_property: dc:contributor
+
+- field_name: maintainer_email
+  label: 
+    sv: E-post till metadatakontakt
+    en: Metadata Contact Email
+  form_placeholder: joe@example.com
+  display_property: dc:contributor
+  display_snippet: email.html
+  display_email_name_field: maintainer
+
+- field_name: metadata_language
+  label: 
+    sv: Språk i metadata
+    en: Language of metadata
+  form_placeholder: Language
+
+- field_name: custom_form_fields
+  label: Custom Field
+  form_snippet: snippets/custom_form_fields.html
+  
+resource_fields:
+
+- field_name: url
+  label: URL
+  preset: resource_url_upload
+
+- field_name: resource_name
+  label:
+    sv: Resursnamn  
+    en: Resource Name
+  form_placeholder: 
+    sv: t.ex. Guldpriser januari 2011
+    en: eg. January 2011 Gold Prices
+
+- field_name: description
+  label:
+    sv: Resurssammanfattning  
+    en: Resource Abstract
+  form_snippet: markdown.html
+  form_placeholder:
+    sv: Beskrivande information om datasetet  
+    en: Some useful notes about the data
+
+- field_name: format
+  label: Format
+  preset: resource_format_autocomplete
+  
+- field_name: resource_license_id
+  label:
+    sv: Licens för resurs  
+    en: Resource License
+  form_snippet: license.html
+  help_text: License definitions and additional information can be found at http://opendefinition.org/  
+  
+- field_name: resource_language
+  label:
+    sv: Språk i resurs  
+    en: Language of resource
+  form_placeholder: 
+    sv: Språk i resurs  
+    en: Language of resource
+  
+- field_name: resource_owner
+  label:
+    sv: Resursägare  
+    en: Resource Owner
+  form_placeholder: 
+    sv: Resursägare  
+    en: Resource Owner
+  
+- field_name: resource_owner_email
+  label:
+    sv: E-post till resursägare  
+    en: Resource Owner Email
+  form_placeholder: 
+    sv: E-post till resursägare  
+    en: Resource Owner Email
+
+- field_name: resource_contact
+  label:
+    sv: Resurskontakt  
+    en: Resource Contact
+  form_placeholder: 
+    sv: Resurskontakt  
+    en: Resource Contact
+
+- field_name: resource_contact_email
+  label:
+    sv: E-post till resurskontakt  
+    en: Resource Contact Email
+  form_placeholder: 
+    sv: E-post till resurskontakt  
+    en: Resource Contact Email
+
+- field_name: completeness
+  label:
+    sv: Fullständighet  
+    en: Completeness
+  form_placeholder: 
+    sv: Fullständighet  
+    en: Completeness 
+
+- field_name: classification
+  label:
+    sv: Klassificering  
+    en: Classification
+  form_placeholder: 
+    sv: Klassificering  
+    en: Classification 
+
+- field_name: update_frequency
+  label:
+    sv: Uppdateringsfrekvens  
+    en: Update frequency
+  form_placeholder:
+    sv: uppdateringsfrekvens  
+    en: update frequency
+
+- field_name: area
+  label:
+    sv: Område  
+    en: Area
+  form_placeholder: 
+    sv: Område  
+    en: Area
+
+- field_name: coordinate_system
+  label:
+    sv: Koordinatsystem  
+    en: Coordinate system
+  form_placeholder: 
+    sv: koordinatsystem  
+    en: coordinate system
+  
+- field_name: scale_factor
+  label:
+    sv: Skalfaktor  
+    en: Scale factor
+  form_placeholder:   
+    sv: skalfaktor  
+    en: scale factor
+
+- field_name: z_min
+  label: Z-min
+  form_placeholder: z-min
+
+- field_name: z_max
+  label: Z-max
+  form_placeholder: z-max
+
+- field_name: north
+  label:
+    sv: Nord  
+    en: North
+  form_placeholder: 
+    sv: nord  
+    en: north 
+
+- field_name: south
+  label: 
+    sv: Syd 
+    en: South
+  form_placeholder: 
+    sv: syd 
+    en: south  
+  
+- field_name: east
+  label:
+    sv: Öst  
+    en: East
+  form_placeholder:
+    sv: öst  
+    en: east  
+  
+- field_name: west
+  label:
+    sv: Väst  
+    en: West
+  form_placeholder: 
+    sv: väst  
+    en: west  
+   

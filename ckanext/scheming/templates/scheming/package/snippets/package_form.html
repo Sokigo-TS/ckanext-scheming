@@ -1,5 +1,7 @@
 {% extends 'package/new_package_form.html' %}
 
+{% import 'macros/form.html' as form %}
+
 {% block stages %}
   {%- set pages = h.scheming_get_dataset_form_pages(dataset_type) -%}
   {%- if pages -%}
@@ -52,6 +54,7 @@
   {%- endif -%}
 {% endblock %}
 
+
 {% block basic_fields %}
   {%- if not dataset_type -%}
     <p>
@@ -82,14 +85,23 @@
           {% do data.__setitem__(field.field_name, field.default) %}
         {% endif %}
       {% endif -%}
-      {%- snippet 'scheming/snippets/form_field.html',
-        field=field,
-        data=data,
-        errors=errors,
-        licenses=c.licenses,
-        entity_type='dataset',
-        object_type=dataset_type
-      -%}
+	  
+	  {%- if field.field_name is not none and field.field_name == 'custom_form_fields' -%}
+	    {% block package_metadata_fields_custom %}
+          {% block custom_fields %}
+            {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
+          {% endblock %}
+        {% endblock %}    
+	  {%- else -%}
+         {%- snippet 'scheming/snippets/form_field.html',
+           field=field,
+           data=data,
+           errors=errors,
+           licenses=c.licenses,
+           entity_type='dataset',
+           object_type=dataset_type
+         -%}
+		{%- endif -%}
     {%- endif -%}
   {%- endfor -%}
 
@@ -103,6 +115,7 @@
 {% endblock %}
 
 {% block metadata_fields %}
+
 {% endblock %}
 
 {% block save_button_text %}
