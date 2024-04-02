@@ -94,76 +94,39 @@
       </div>
     {% endblock %}
 
-    {% block basic_fields_resource_language %}
-      {{ form.input('resource_language', id='field-resource-language', label=_('Language of resource'), placeholder=_('Language of resource'), value=data.resource_language, error=errors.resource_language, classes=['control-full']) }}
-    {% endblock %}
+      {% block other_resource_fields %}
+       	{%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
+         {%- for field in schema.resource_fields -%}
+		  {%- if field.field_name is not none and field.field_name not in ['url', 'resource_name', 'description', 'format', 'resource_license_id' ] -%}
+           {%- if field.form_snippet is not none -%}
+             {%- if field.field_name not in data %}
+               {# Set the field default value before rendering but only if
+               it doesn't already exist in data which would mean the form
+               has been submitted. #}
+               {% if field.default_jinja2 %}
+                 {% do data.__setitem__(
+                   field.field_name,
+                   h.scheming_render_from_string(field.default_jinja2)) %}
+               {% elif field.default %}
+                 {% do data.__setitem__(field.field_name, field.default) %}
+               {% endif %}
+             {% endif -%}
+             {# We pass pkg_name as the package_id because that's the only
+             variable available in this snippet #}
+             {%- snippet 'scheming/snippets/form_field.html',
+               field=field,
+               data=data,
+               errors=errors,
+               licenses=c.licenses,
+               entity_type='dataset',
+               object_type=dataset_type,
+               package_id=pkg_name
+             -%}
+           {%- endif -%}
+		   {%- endif -%}
+         {%- endfor -%}
+	   {% endblock %}
 
-    {% block basic_fields_resource_owner %}
-      {{ form.input('resource_owner', id='field-resource-owner', label=_('Resource Owner'), placeholder=_('Resource Owner'), value=data.resource_owner, error=errors.resource_owner, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_resource_owner_email %}
-      {{ form.input('resource_owner_email', id='field-resource-owner-email', label=_('Resource Owner Email'), placeholder=_('Resource Owner Email'), value=data.resource_owner_email, error=errors.resource_owner_email, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_resource_contact %}
-      {{ form.input('resource_contact', id='field-resource-contact', label=_('Resource Contact'), placeholder=_('Resource Contact'), value=data.resource_contact, error=errors.resource_contact, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_resource_contact_email %}
-      {{ form.input('resource_contact_email', id='field-resource-contact-email', label=_('Resource Contact Email'), placeholder=_('Resource Contact Email'), value=data.resource_contact_email, error=errors.resource_contact_email, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_completeness %}
-      {{ form.input('completeness', id='field-completeness', label=_('Completeness'), placeholder=_('Completeness'), value=data.completeness, error=errors.completeness, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_classification %}
-      {{ form.input('classification', id='field-classification', label=_('Classification'), placeholder=_('Classification'), value=data.classification, error=errors.classification, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_update_frequency %}
-      {{ form.input('update_frequency', id='field-update-frequency', label=_('Update frequency'), placeholder=_('update frequency'), value=data.update_frequency, error=errors.update_frequency, classes=['control-full']) }}
-    {% endblock %}
-
-
-    {% block basic_fields_area %}
-      {{ form.input('area', id='field-area', label=_('Area'), placeholder=_('Area'), value=data.area, error=errors.area, classes=['control-full']) }}
-    {% endblock %}
-
-
-    {% block basic_fields_coordinate_system %}
-      {{ form.input('coordinate_system', id='field-coordinate-system', label=_('Coordinate system'), placeholder=_('coordinate system'), value=data.coordinate_system, error=errors.coordinate_system, classes=['control-full']) }}
-    {% endblock %}
-
-
-    {% block basic_fields_scale_factor %}
-      {{ form.input('scale_factor', id='field-scale-factor', label=_('Scale factor'), placeholder=_('Scale factor'), value=data.scale_factor, error=errors.scale_factor, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_z_min %}
-      {{ form.input('z_min', id='field-z-min', label=_('Z-Min'), placeholder=_('z-min'), value=data.z_min, error=errors.z_min, classes=['control-full']) }}
-    {% endblock %}
-
-    {% block basic_fields_z_max %}
-      {{ form.input('z_max', id='field-z-max', label=_('Z-Max'), placeholder=_('z-max'), value=data.z_max, error=errors.z_max, classes=['control-full']) }}
-    {% endblock %}
-  
-    {% block basic_fields_north %}
-      {{ form.input('north', id='field-north', label=_('North'), placeholder=_('north'), value=data.north, error=errors.north, classes=['control-full']) }}
-    {% endblock %}
-  
-    {% block basic_fields_south %}
-      {{ form.input('south', id='field-south', label=_('South'), placeholder=_('south'), value=data.south, error=errors.south, classes=['control-full']) }}
-    {% endblock %}
-  
-    {% block basic_fields_east %}
-      {{ form.input('east', id='field-east', label=_('East'), placeholder=_('east'), value=data.east, error=errors.east, classes=['control-full']) }}
-    {% endblock %}
-  
-    {% block basic_fields_west %}
-      {{ form.input('west', id='field-west', label=_('West'), placeholder=_('west'), value=data.west, error=errors.west, classes=['control-full']) }}
-    {% endblock %}
 
 {% endblock %}
 

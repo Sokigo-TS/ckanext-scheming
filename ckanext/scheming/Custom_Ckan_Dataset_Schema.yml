@@ -26,6 +26,7 @@ dataset_fields:
   label:
     sv: Sammanfattning  
     en: Description
+
   form_snippet: markdown.html
   form_placeholder:
     sv: t.ex. Några rader om datasetet  
@@ -99,6 +100,25 @@ dataset_fields:
     sv: Språk i metadata
     en: Language of metadata
   form_placeholder: Language
+  
+- field_name: access_rights
+  preset: select
+  label: 
+    sv: Åtkomsträttigheter
+    en: Access rights
+  choices:
+  - value: Begränsad 
+    label: 
+      sv: Begränsad
+      en: Limited
+  - value: Ej offentlig
+    label: 
+      sv: Ej offentlig
+      en: Not public  
+  - value: Publik
+    label: 
+      sv: Publik
+      en: Public    
 
 - field_name: custom_form_fields
   label: Custom Field
@@ -266,3 +286,24 @@ resource_fields:
     sv: väst  
     en: west  
    
+- field_name: status
+  preset: select
+  label: Status
+  form_placeholder: status
+  choices:
+  - value: Avvecklad  
+    label: 
+      sv: Avvecklad
+      en: Discontinued 
+  - value: Färdig 
+    label: 
+      sv: Färdig 
+      en: Complete   
+  - value: Tillbakadragen
+    label: 
+      sv: Tillbakadragen
+      en: Withdrawn  
+  - value: Under utveckling
+    label: 
+      sv: Under utveckling
+      en: Under development        
