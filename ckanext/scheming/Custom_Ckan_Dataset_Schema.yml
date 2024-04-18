@@ -119,6 +119,11 @@ dataset_fields:
     label: 
       sv: Publik
       en: Public    
+      
+- field_name: linked_dataset
+  label: Dataset
+  preset: select
+  choices_helper: get_datasets      
 
 - field_name: custom_form_fields
   label: Custom Field
