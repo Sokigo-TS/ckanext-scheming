@@ -10,10 +10,103 @@
     'owner_org',
     ] -%}
 
-{% block package_additional_info %}
+
+  {% block package_additional_info %}
+ 
+        {% if pkg_dict.url %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Source') }}</th>
+            {% if h.is_url(pkg_dict.url) %}
+              <td class="dataset-details" property="foaf:homepage">{{ h.link_to(pkg_dict.url, pkg_dict.url, rel='foaf:homepage', target='_blank') }}</td>
+            {% else %}
+              <td class="dataset-details" property="foaf:homepage">{{ pkg_dict.url }}</td>
+            {% endif %}
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.author_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Metadata Owner Email") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author) }}</td>
+          </tr>
+        {% elif pkg_dict.author %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Metadata Owner") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.maintainer_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Metadata Contact Email') }}</th>
+            <td class="dataset-details" property="dc:contributor">{{ h.mail_to(email_address=pkg_dict.maintainer_email, name=pkg_dict.maintainer) }}</td>
+          </tr>
+        {% elif pkg_dict.maintainer %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Metadata Contact') }}</th>
+            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.maintainer }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.version %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Version") }}</th>
+            <td class="dataset-details">{{ pkg_dict.version }}</td>
+          </tr>
+        {% endif %}
+
+        {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("State") }}</th>
+            <td class="dataset-details">{{ _(pkg_dict.state | capitalize) }}</td>
+          </tr>
+        {% endif %}
+
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("License") }}</th>
+            <td class="dataset-details">{% snippet "snippets/license.html", pkg_dict=pkg_dict, text_only=True %}</td>
+          </tr>
+		
+        {% if pkg_dict.metadata_modified %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Last Updated") }}</th>
+            <td class="dataset-details">
+                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_modified %}
+            </td>
+          </tr>
+        {% endif %}
+        {% if pkg_dict.metadata_created %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Created") }}</th>
+
+            <td class="dataset-details">
+                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_created %}
+            </td>
+          </tr>
+        {% endif %}
+        {% if pkg_dict.metadata_language %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Language of metadata") }}</th>
+            <td class="dataset-details">{{ pkg_dict.metadata_language }}</td>
+          </tr>
+        {% endif %}
+
+      {% block extras scoped %}
+        {% for extra in h.sorted_extras(pkg_dict.extras) %}
+          {% set key, value = extra %}
+          <tr rel="dc:relation" resource="_:extra{{ i }}">
+            <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key) }}</th>
+            <td class="dataset-details" property="rdf:value">{{ value }}</td>
+          </tr>
+        {% endfor %}
+      {% endblock %}
+
+      
+
   {%- for field in schema.dataset_fields -%}
-    {%- if field.field_name not in exclude_fields
-        and field.display_snippet is not none -%}
+     
+    {%- if field.field_name in ['access_rights', 'linked_dataset'] -%}
+		
       <tr>
         <th scope="row" class="dataset-label">{{
           h.scheming_language_text(field.label) }}</th>
@@ -22,12 +115,8 @@
           }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
           field=field, data=pkg_dict, schema=schema -%}</td>
       </tr>
+	 
     {%- endif -%}
   {%- endfor -%}
-  {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
-    <tr>
-      <th scope="row" class="dataset-label">{{ _("State") }}</th>
-      <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
-    </tr>
-  {% endif %}
+ 
 {% endblock %}
