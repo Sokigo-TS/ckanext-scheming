@@ -2,6 +2,7 @@
 
 {%- set options=[] -%}
 {%- set form_restrict_choices_to=field.get('form_restrict_choices_to') -%}
+
 {%- if not h.scheming_field_required(field) or
     field.get('form_include_blank_choice', false) -%}
   {%- do options.append({'value': '', 'text': ''}) -%}
@@ -10,7 +11,7 @@
   {%- if not form_restrict_choices_to or c.value in form_restrict_choices_to -%}
     {%- do options.append({
       'value': c.value|string,
-      'text': h.scheming_language_text(c.label) }) -%}
+      'text': h.scheming_language_text(c.label)|safe }) -%}
   {%- endif -%}
 {%- endfor -%}
 {%- if field.get('sorted_choices') -%}

@@ -13,6 +13,7 @@ from ckanapi import LocalCKAN, NotFound, NotAuthorized
 
 all_helpers = {}
 
+
 def helper(fn):
     """
     collect helper functions into ckanext.scheming.all_helpers dict
@@ -74,9 +75,13 @@ def scheming_field_choices(field):
     :param field: scheming field definition
     :returns: choices iterable or None if not found.
     """
-    if 'choices' in field:
+   
+    
+    if 'choices' in field and field['choices'] is not None:
+        
         return field['choices']
-    if 'choices_helper' in field:
+    if 'choices_helper' in field and field['choices_helper'] is not None:
+        
         from ckantoolkit import h
         choices_fn = getattr(h, field['choices_helper'])
         return choices_fn(field)
