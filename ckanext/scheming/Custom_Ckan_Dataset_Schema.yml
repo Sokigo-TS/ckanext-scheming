@@ -46,27 +46,7 @@ dataset_fields:
     en: Publisher
   preset: select
   choices_helper: get_publisher_from_json  
- # repeating_label: Utgivare
- # repeating_once: true
- # repeating_subfields:
- #
- #   - field_name: publisher_uri
- #     label: URI
- #
- #   - field_name: publisher_name
- #     label: Name
- #
- #   - field_name: publisher_email
- #     label: Email
- #     display_snippet: email.html
- #
- #   - field_name: publisher_url
- #     label: URL
- #     display_snippet: link.html
- #
- #   - field_name: publisher_type
- #     label: Type
- # help_text: Entity responsible for making the dataset available.
+
 
 - field_name: publisher_uri
   label: 
@@ -123,22 +103,6 @@ dataset_fields:
   validators: ignore_missing unicode_safe package_version_validator
   form_placeholder: '1.0'
 
-#- field_name: Producent
-#  label: Producent
-#  repeating_label: Contact point
-#  help_text: Contact information for enquiries about the dataset.
-#  repeating_subfields:
-#
-#    - field_name: contact_uri
-#      label: URI
-#
-#    - field_name: contact_name
-#      label: Name
-#
-#    - field_name: contact_email
-#      label: Email
-#      display_snippet: email.html
-  
 
 ##- field_name: author
 ##  label: 
@@ -158,13 +122,15 @@ dataset_fields:
 #
 
 - field_name: contact_uri
-  label: Producent organisation
+  label:  
+    sv: Producent organisation
+    en: Producer organisation
 
 - field_name: contact_name
   label:   
     sv: Producent namn
     en: Producer name
-
+    
 - field_name: contact_email
   label: 
     sv: Producent e-post
@@ -582,7 +548,9 @@ dataset_fields:
  
  
 - field_name: source
-  label: Källa
+  label: 
+    sv: Källa
+    en: source
   preset: select
   choices_helper: get_datasets      
 
@@ -682,80 +650,68 @@ dataset_fields:
         en: never
 
 - field_name: issued
-  label: Utgivningsdatum
-  preset: date # date.html
+  label: 
+    sv: Utgivningsdatum
+    en: Issue date
+  preset: date 
   form_placeholder: YYYY-MM-DD
-  #validators: isodate
   
 - field_name: modified
-  label: Ändringsdatum
+  label: 
+    sv: Ändringsdatum
+    en: Modified date
   preset:  date
   form_placeholder: YYYY-MM-DD
-  #validators: ignore_missing isodate
 
 
 - field_name: conforms_to
-  label: Uppfyller
+  label: 
+    sv: Uppfyller
+    en: Fulfills
   preset: multiple_text
   validators: ignore_missing scheming_multiple_text
   help_text: An implementing rule or other specification that the dataset follows.
 
 - field_name: spatial_uri
-  label: Namngivet geografiskt område
+  label: 
+    sv: Namngivet geografiskt område
+    en: Named geographic area
   validators: url_validator
   required: true
   
-#- field_name: temporal_coverage
-#  label: Temporal coverage
-#  help_text: The temporal period or periods the dataset covers.
-#  repeating_subfields:
-#
-#    - field_name: temporal_start
-#      label: Gilltig från
-#      preset: date
-#
-#    - field_name: temporal_end
-#      label: till datum
-#      preset: date
 
 - field_name: temporal_start
-  label: Gilltig från
+  label: 
+    sv: Gilltig från
+    en: Valid from
   preset: date
 
 - field_name: temporal_end
-  label: till datum
+  label: 
+    sv: till datum
+    en: to date
   preset: date        
   
-###- field_name: Tidsperiod
-###  label: Tidsperiod
-###  repeating_subfields:
-##  
-##- field_name: temporal_start
-##  label: Gilltig från
-##  type: date
-##  validators: isodate
-##  display_snippet: date.html 
-##  form_placeholder: YYYY-MM-DD
-##
-##- field_name: temporal_end
-##  label: till datum
-##  type: date  
-##  validators: isodate
-##  display_snippet: date.html
-##  form_placeholder: YYYY-MM-DD  
   
 - field_name: spatial_resolution_in_meters
-  label: Rumslig upplösning
+  label: 
+    sv: Rumslig upplösning
+    en: Spatial resolution
+
 
 - field_name: provenance
-  label: Ursprung
+  label: 
+    sv: Ursprung
+    en: Origin
   form_snippet: markdown.html
   display_snippet: markdown.html
   help_text: A statement about the lineage of the dataset.
 
 - field_name: Klassificering
   preset: select
-  label: Klassificering
+  label: 
+    sv: Klassificering
+    en: Classification
   choices:
   - value: Konfidentialitet
     label:
@@ -784,13 +740,11 @@ dataset_fields:
 resource_fields:
 
 - field_name: access_url
-  label: Webbadress för åtkomst
+  label: 
+    sv: Webbadress för åtkomst
+    en: Web address for access
   preset: resource_url_upload
   
-#- field_name: download_url
-#  label: Webbadress för nedladdning
-#  preset: resource_url_upload  
-
 
 - field_name: name
   label:
@@ -810,7 +764,9 @@ resource_fields:
     en: Some useful notes about the data
 
 - field_name: format
-  label: Vanliga mediatyper
+  label: 
+    sv: Vanliga mediatyper
+    en: Common media types
   preset: resource_format_autocomplete
   
 - field_name: license
@@ -971,11 +927,15 @@ resource_fields:
       en: Under development        
       
 - field_name: issued
-  label: Utgivningsdatum
+  label: 
+    sv: Utgivningsdatum
+    en: Issue date
   preset: date   
 
 - field_name: modified
-  label: Ändringsdatum
+  label: 
+    sv: Ändringsdatum
+    en: Modified date
   preset: date
   required: false
   validators: ignore_missing
