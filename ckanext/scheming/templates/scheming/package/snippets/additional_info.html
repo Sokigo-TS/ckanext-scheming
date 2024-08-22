@@ -36,15 +36,15 @@
           </tr>
         {% endif %}
 
-        {% if pkg_dict.maintainer_email %}
+        {% if pkg_dict.contact_email %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('Metadata Contact Email') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ h.mail_to(email_address=pkg_dict.maintainer_email, name=pkg_dict.maintainer) }}</td>
+            <td class="dataset-details" property="dc:contributor">{{ h.mail_to(email_address=pkg_dict.contact_email, name=pkg_dict.contact_name) }}</td>
           </tr>
-        {% elif pkg_dict.maintainer %}
+        {% elif pkg_dict.contact_name %}
           <tr>
             <th scope="row" class="dataset-label">{{ _('Metadata Contact') }}</th>
-            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.maintainer }}</td>
+            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.contact_name }}</td>
           </tr>
         {% endif %}
 
@@ -84,10 +84,10 @@
             </td>
           </tr>
         {% endif %}
-        {% if pkg_dict.metadata_language %}
+        {% if pkg_dict.language %}
           <tr>
             <th scope="row" class="dataset-label">{{ _("Language of metadata") }}</th>
-            <td class="dataset-details">{{ pkg_dict.metadata_language }}</td>
+            <td class="dataset-details">{{ pkg_dict.language }}</td>
           </tr>
         {% endif %}
 
@@ -105,7 +105,8 @@
 
   {%- for field in schema.dataset_fields -%}
      
-    {%- if field.field_name in ['access_rights', 'linked_dataset'] -%}
+    {%- if field.field_name in ['access_rights', 'source', 'frequency', 'issued', 'modified', 'conforms_to', 'spatial_uri', 'temporal_start', 'temporal_end', 'spatial_resolution_in_meters', 
+	'provenance', 'Klassificering', 'Utgivare', 'publisher_uri', 'publisher_email', 'publisher_url', 'publisher_type', 'contact_uri', 'contact_name', 'contact_email' ] -%}
 		
       <tr>
         <th scope="row" class="dataset-label">{{

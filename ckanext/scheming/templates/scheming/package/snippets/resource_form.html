@@ -71,9 +71,9 @@
         <div class="controls">
           <div class="row">
             <div class="col-md-6">
-              <select id="field-license" name="resource_license_id" data-module="autocomplete">
+              <select id="field-license" name="license" data-module="autocomplete">
                 <option value=""></option>
-                {% set existing_license_id = data.get('resource_license_id') or data.get('license_id') %}
+                {% set existing_license_id = data.get('license') or data.get('license_id') %}
                 {% for license_id, license_desc in h.license_options(existing_license_id) %}
                 <option value="{{ license_id }}" {% if existing_license_id == license_id %}selected="selected"{% endif %}>{{ license_desc }}</option>
                 {% endfor %}
@@ -97,7 +97,7 @@
       {% block other_resource_fields %}
        	{%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
          {%- for field in schema.resource_fields -%}
-		  {%- if field.field_name is not none and field.field_name not in ['url', 'resource_name', 'description', 'format', 'resource_license_id' ] -%}
+		  {%- if field.field_name is not none and field.field_name not in ['access_url', 'name', 'description', 'format', 'license' ] -%}
            {%- if field.form_snippet is not none -%}
              {%- if field.field_name not in data %}
                {# Set the field default value before rendering but only if

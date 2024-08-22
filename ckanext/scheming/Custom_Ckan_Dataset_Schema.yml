@@ -24,9 +24,8 @@ dataset_fields:
 
 - field_name: notes
   label:
-    sv: Sammanfattning  
+    sv: Beskrivning  
     en: Description
-
   form_snippet: markdown.html
   form_placeholder:
     sv: t.ex. Några rader om datasetet  
@@ -41,6 +40,66 @@ dataset_fields:
     sv: t.ex. ekonomi, psykisk hälsa, offentlig sektor
     en: eg. economy, mental health, government
 
+- field_name: Utgivare
+  label: 
+    sv: Utgivare
+    en: Publisher
+  preset: select
+  choices_helper: get_publisher_from_json  
+ # repeating_label: Utgivare
+ # repeating_once: true
+ # repeating_subfields:
+ #
+ #   - field_name: publisher_uri
+ #     label: URI
+ #
+ #   - field_name: publisher_name
+ #     label: Name
+ #
+ #   - field_name: publisher_email
+ #     label: Email
+ #     display_snippet: email.html
+ #
+ #   - field_name: publisher_url
+ #     label: URL
+ #     display_snippet: link.html
+ #
+ #   - field_name: publisher_type
+ #     label: Type
+ # help_text: Entity responsible for making the dataset available.
+
+- field_name: publisher_uri
+  label: 
+    sv: Utgivare URI
+    en: Publisher URI
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: publisher_email
+  label: 
+    sv: Utgivare Email
+    en: Publisher Email
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: publisher_url
+  label: 
+    sv: Utgivare URL
+    en: Publisher URL
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: publisher_type
+  label: 
+    sv: Utgivare Type
+    en: Publisher Type
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
 - field_name: license_id
   label:
     sv: Licens  
@@ -51,6 +110,7 @@ dataset_fields:
 - field_name: owner_org
   label: Organization
   preset: dataset_organization
+
 
 - field_name: url
   label: Source
@@ -63,67 +123,659 @@ dataset_fields:
   validators: ignore_missing unicode_safe package_version_validator
   form_placeholder: '1.0'
 
-- field_name: author
-  label: 
-    sv: Metadataägare
-    en: Metadata Owner
-  form_placeholder: Joe Bloggs
-  display_property: dc:creator
+#- field_name: Producent
+#  label: Producent
+#  repeating_label: Contact point
+#  help_text: Contact information for enquiries about the dataset.
+#  repeating_subfields:
+#
+#    - field_name: contact_uri
+#      label: URI
+#
+#    - field_name: contact_name
+#      label: Name
+#
+#    - field_name: contact_email
+#      label: Email
+#      display_snippet: email.html
+  
 
-- field_name: author_email
-  label: 
-    sv: E-post till metadataägare
-    en: Metadata Owner Email
-  form_placeholder: joe@example.com
-  display_property: dc:creator
-  display_snippet: email.html
-  display_email_name_field: author
+##- field_name: author
+##  label: 
+##    sv: Metadataägare
+##    en: Metadata Owner
+##  form_placeholder: Joe Bloggs
+##  display_property: dc:creator
+##
+##- field_name: author_email
+##  label: 
+##    sv: E-post till metadataägare
+##    en: Metadata Owner Email
+##  form_placeholder: joe@example.com
+##  display_property: dc:creator
+##  display_snippet: email.html
+##  display_email_name_field: author
+#
 
-- field_name: maintainer
+- field_name: contact_uri
+  label: Producent organisation
+
+- field_name: contact_name
   label:   
-    sv: Metadatakontakt
-    en: Metadata Contact
-  form_placeholder: Joe Bloggs
-  display_property: dc:contributor
+    sv: Producent namn
+    en: Producer name
 
-- field_name: maintainer_email
+- field_name: contact_email
   label: 
-    sv: E-post till metadatakontakt
-    en: Metadata Contact Email
+    sv: Producent e-post
+    en: Producer email
   form_placeholder: joe@example.com
   display_property: dc:contributor
   display_snippet: email.html
-  display_email_name_field: maintainer
+  display_email_name_field: contact_name
+  
 
-- field_name: metadata_language
+- field_name: language
   label: 
-    sv: Språk i metadata
-    en: Language of metadata
+    sv: Språk
+    en: Language
   form_placeholder: Language
+  preset: select
+  choices:
+    - value: Albanian
+      label:
+        sv: Albanska
+        en: Albanian
+    - value: Arabic
+      label:
+        sv: Arabiska
+        en: Arabic
+    - value: Armenian
+      label:
+        sv: Armeniska
+        en: Armenian
+    - value: Azerbaijani
+      label:
+        sv: Azerbajdzjanska
+        en: Azerbaijani
+    - value: Basque
+      label:
+        sv: Baskiska
+        en: Basque
+    - value: Belarusian
+      label:
+        sv: Vitryska
+        en: Belarusian
+    - value: Bengali
+      label:
+        sv: Bengali
+        en: Bengali
+    - value: Bosnian
+      label:
+        sv: Bosniska
+        en: Bosnian
+    - value: Breton
+      label:
+        sv: Bretonska
+        en: Breton
+    - value: Bulgarian
+      label:
+        sv: Bulgariska
+        en: Bulgarian
+    - value: Catalan
+      label:
+        sv: Katalanska
+        en: Catalan
+    - value: Chinese
+      label:
+        sv: Kinesiska
+        en: Chinese
+    - value: Corsican
+      label:
+        sv: Korsikanska
+        en: Corsican
+    - value: Croatian
+      label:
+        sv: Kroatiska
+        en: Croatian
+    - value: Czech
+      label:
+        sv: Tjeckiska
+        en: Czech
+    - value: Danish
+      label:
+        sv: Danska
+        en: Danish
+    - value: divehi
+      label:
+        sv: Divehi
+        en: Divehi
+    - value: Dutch
+      label:
+        sv: Holländska
+        en: Dutch
+    - value: English
+      label:
+        sv: Engelska
+        en: English
+    - value: Esperanto
+      label:
+        sv: Esperanto
+        en: Esperanto
+    - value: Estonian
+      label:
+        sv: Estniska
+        en: Estonian
+    - value: Faroese
+      label:
+        sv: Färöiska
+        en: Faroese
+    - value: Finnish
+      label:
+        sv: Finska
+        en: Finnish
+    - value: Flemish
+      label:
+        sv: Flamländska
+        en: Flemish
+    - value: French
+      label:
+        sv: Franska
+        en: French
+    - value: Frisian
+      label:
+        sv: Frisiska
+        en: Frisian
+    - value: Galician
+      label:
+        sv: Galiciska
+        en: Galician
+    - value: Georgian
+      label:
+        sv: Georgiska
+        en: Georgian
+    - value: German
+      label:
+        sv: Tyska
+        en: German
+    - value: Greek
+      label:
+        sv: Grekiska
+        en: Greek
+    - value: Greenlandic
+      label:
+        sv: Grönländska
+        en: Greenlandic
+    - value: Hebrew
+      label:
+        sv: Hebreiska
+        en: Hebrew
+    - value: Hindi
+      label:
+        sv: Hindi
+        en: Hindi
+    - value: Hungarian
+      label:
+        sv: Ungerska
+        en: Hungarian
+    - value: Icelandic
+      label:
+        sv: Isländska
+        en: Icelandic
+    - value: Indonesian
+      label:
+        sv: Indonesiska
+        en: Indonesian
+    - value: Interlingua
+      label:
+        sv: Interlingua
+        en: Interlingua
+    - value: Irish
+      label:
+        sv: Irländska
+        en: Irish
+    - value: Italian
+      label:
+        sv: Italienska
+        en: Italian
+    - value: Japanese
+      label:
+        sv: Japanska
+        en: Japanese
+    - value: Kashubian
+      label:
+        sv: Kasjubiska
+        en: Kashubian
+    - value: Kazakh
+      label:
+        sv: Kazakiska
+        en: Kazakh
+    - value: Khmer
+      label:
+        sv: Khmer
+        en: Khmer
+    - value: Korean
+      label:
+        sv: Koreanska
+        en: Korean
+    - value: Kurdish
+      label:
+        sv: Kurdiska
+        en: Kurdish
+    - value: Kyrgyz
+      label:
+        sv: Kirgiziska
+        en: Kyrgyz
+    - value: Lao
+      label:
+        sv: Lao
+        en: Lao
+    - value: Latin
+      label:
+        sv: Latin
+        en: Latin
+    - value: Latvian
+      label:
+        sv: Lettiska
+        en: Latvian
+    - value: Lithuanian
+      label:
+        sv: Litauiska
+        en: Lithuanian
+    - value: Luxembourgish
+      label:
+        sv: Luxemburgiska
+        en: Luxembourgish
+    - value: Macedonian
+      label:
+        sv: Makedonska
+        en: Macedonian
+    - value: Malagasy
+      label:
+        sv: Madagaskiska
+        en: Malagasy
+    - value: Malay
+      label:
+        sv: Malaysiska
+        en: Malay
+    - value: Maltese
+      label:
+        sv: Maltesiska
+        en: Maltese
+    - value: Minangkabau
+      label:
+        sv: Minangkabau
+        en: Minangkabau
+    - value: Moldovan
+      label:
+        sv: Moldaviska
+        en: Moldovan
+    - value: Mongolian
+      label:
+        sv: Mongoliska
+        en: Mongolian
+    - value: Montenegrin
+      label:
+        sv: Montenegrinska
+        en: Montenegrin
+    - value: Nepali
+      label:
+        sv: Nepalesiska
+        en: Nepali
+    - value: Northern Sámi
+      label:
+        sv: Nordsamiska
+        en: Northern Sámi
+    - value: Norwegian
+      label:
+        sv: Norska
+        en: Norwegian
+    - value: Occitan
+      label:
+        sv: Occitanska
+        en: Occitan
+    - value: Ossetian
+      label:
+        sv: Ossetiska
+        en: Ossetian
+    - value: Persian
+      label:
+        sv: Persiska
+        en: Persian
+    - value: Polish
+      label:
+        sv: Polska
+        en: Polish
+    - value: Portuguese
+      label:
+        sv: Portugisiska
+        en: Portuguese
+    - value: Romani
+      label:
+        sv: Romani
+        en: Romani
+    - value: Romanian
+      label:
+        sv: Rumänska
+        en: Romanian
+    - value: Romansh
+      label:
+        sv: Rätoromanska
+        en: Romansh
+    - value: Russian
+      label:
+        sv: Ryska
+        en: Russian
+    - value: Scottish Gaelic
+      label:
+        sv: Skotsk gaeliska
+        en: Scottish Gaelic
+    - value: Serbian
+      label:
+        sv: Serbiska
+        en: Serbian
+    - value: Serbo-Croatian
+      label:
+        sv: Serbokroatiska
+        en: Serbo-Croatian
+    - value: Sinhala
+      label:
+        sv: Singalesiska
+        en: Sinhala
+    - value: Slovak
+      label:
+        sv: Slovakiska
+        en: Slovak
+    - value: Slovenian
+      label:
+        sv: Slovenska
+        en: Slovenian
+    - value: Spanish
+      label:
+        sv: Spanska
+        en: Spanish
+    - value: Swahili
+      label:
+        sv: Swahili
+        en: Swahili
+    - value: Tajik
+      label:
+        sv: Tadzjikiska
+        en: Tajik
+    - value: Tamil
+      label:
+        sv: Tamil
+        en: Tamil
+    - value: Thai
+      label:
+        sv: Thailändska
+        en: Thai
+    - value: Tibetan
+      label:
+        sv: Tibetanska
+        en: Tibetan
+    - value: Turkish
+      label:
+        sv: Turkiska
+        en: Turkish
+    - value: Turkmen
+      label:
+        sv: Turkmeniska
+        en: Turkmen
+    - value: Ukrainian
+      label:
+        sv: Ukrainska
+        en: Ukrainian
+    - value: Urdu
+      label:
+        sv: Urdu
+        en: Urdu
+    - value: Uzbek
+      label:
+        sv: Uzbekiska
+        en: Uzbek
+    - value: Valencian
+      label:
+        sv: Valensianska
+        en: Valencian
+    - value: Vietnamese
+      label:
+        sv: Vietnamesiska
+        en: Vietnamese
+    - value: Walloon
+      label:
+        sv: Vallonska
+        en: Walloon
+    - value: Welsh
+      label:
+        sv: Waleisiska
+        en: Welsh
+    - value: Yiddish
+      label:
+        sv: Jiddisch
+        en: Yiddish
+    - value: Zulu
+      label:
+        sv: Zulu
+        en: Zulu
+
   
 - field_name: access_rights
+  required: true
   preset: select
   label: 
     sv: Åtkomsträttigheter
     en: Access rights
   choices:
-  - value: Begränsad 
-    label: 
-      sv: Begränsad
-      en: Limited
-  - value: Ej offentlig
-    label: 
-      sv: Ej offentlig
-      en: Not public  
-  - value: Publik
-    label: 
-      sv: Publik
-      en: Public    
-      
-- field_name: linked_dataset
-  label: Dataset
+    - value: Begränsad 
+      label: 
+        sv: Begränsad
+        en: Limited
+    - value: Ej offentlig
+      label: 
+        sv: Ej offentlig
+        en: Not public  
+    - value: Publik
+      label: 
+        sv: Publik
+        en: Public    
+ 
+ 
+- field_name: source
+  label: Källa
   preset: select
   choices_helper: get_datasets      
+
+- field_name: frequency
+  preset: select
+  label: 
+    sv: Uppdateringsfrekvens
+    en: Update frequency
+  choices:
+    - value: kontinuerlig
+      label:
+        sv: kontinuerlig
+        en: continuous
+    - value: uppdateras kontinuerligt
+      label:
+        sv: uppdateras kontinuerligt
+        en: updated continuously
+    - value: två gånger per dag
+      label:
+        sv: två gånger per dag
+        en: twice daily
+    - value: dagligen
+      label:
+        sv: dagligen
+        en: daily
+    - value: tre gånger per vecka
+      label:
+        sv: tre gånger per vecka
+        en: three times per week
+    - value: två gånger per vecka
+      label:
+        sv: två gånger per vecka
+        en: twice weekly
+    - value: veckovis
+      label:
+        sv: veckovis
+        en: weekly
+    - value: tre gånger per månad
+      label:
+        sv: tre gånger per månad
+        en: three times per month
+    - value: varannan vecka
+      label:
+        sv: varannan vecka
+        en: biweekly
+    - value: två gånger per månad
+      label:
+        sv: två gånger per månad
+        en: twice monthly
+    - value: månatligen
+      label:
+        sv: månatligen
+        en: monthly
+    - value: varannan månad
+      label:
+        sv: varannan månad
+        en: every other month
+    - value: kvartalsvis
+      label:
+        sv: kvartalsvis
+        en: quarterly
+    - value: tre gånger per år
+      label:
+        sv: tre gånger per år
+        en: three times per year
+    - value: halvårsvis
+      label:
+        sv: halvårsvis
+        en: biannually
+    - value: årligen
+      label:
+        sv: årligen
+        en: annually
+    - value: vartannat år
+      label:
+        sv: vartannat år
+        en: every other year
+    - value: vart tredje år
+      label:
+        sv: vart tredje år
+        en: every third year
+    - value: oregelbundet
+      label:
+        sv: oregelbundet
+        en: irregularly
+    - value: annan
+      label:
+        sv: annan
+        en: other
+    - value: okänd
+      label:
+        sv: okänd
+        en: unknown
+    - value: aldrig
+      label:
+        sv: aldrig
+        en: never
+
+- field_name: issued
+  label: Utgivningsdatum
+  preset: date # date.html
+  form_placeholder: YYYY-MM-DD
+  #validators: isodate
+  
+- field_name: modified
+  label: Ändringsdatum
+  preset:  date
+  form_placeholder: YYYY-MM-DD
+  #validators: ignore_missing isodate
+
+
+- field_name: conforms_to
+  label: Uppfyller
+  preset: multiple_text
+  validators: ignore_missing scheming_multiple_text
+  help_text: An implementing rule or other specification that the dataset follows.
+
+- field_name: spatial_uri
+  label: Namngivet geografiskt område
+  validators: url_validator
+  required: true
+  
+#- field_name: temporal_coverage
+#  label: Temporal coverage
+#  help_text: The temporal period or periods the dataset covers.
+#  repeating_subfields:
+#
+#    - field_name: temporal_start
+#      label: Gilltig från
+#      preset: date
+#
+#    - field_name: temporal_end
+#      label: till datum
+#      preset: date
+
+- field_name: temporal_start
+  label: Gilltig från
+  preset: date
+
+- field_name: temporal_end
+  label: till datum
+  preset: date        
+  
+###- field_name: Tidsperiod
+###  label: Tidsperiod
+###  repeating_subfields:
+##  
+##- field_name: temporal_start
+##  label: Gilltig från
+##  type: date
+##  validators: isodate
+##  display_snippet: date.html 
+##  form_placeholder: YYYY-MM-DD
+##
+##- field_name: temporal_end
+##  label: till datum
+##  type: date  
+##  validators: isodate
+##  display_snippet: date.html
+##  form_placeholder: YYYY-MM-DD  
+  
+- field_name: spatial_resolution_in_meters
+  label: Rumslig upplösning
+
+- field_name: provenance
+  label: Ursprung
+  form_snippet: markdown.html
+  display_snippet: markdown.html
+  help_text: A statement about the lineage of the dataset.
+
+- field_name: Klassificering
+  preset: select
+  label: Klassificering
+  choices:
+  - value: Konfidentialitet
+    label:
+      sv: Konfidentialitet
+      en: Confidentiality
+      
+  - value: Tillgänglighet
+    label:
+      sv: Tillgänglighet
+      en: Availability
+      
+  - value: Fullständighet
+    label:
+      sv: Fullständighet
+      en: Completeness
+      
+  - value: Riktighet
+    label:
+      sv: Riktighet
+      en: Correctness
 
 - field_name: custom_form_fields
   label: Custom Field
@@ -131,77 +783,82 @@ dataset_fields:
   
 resource_fields:
 
-- field_name: url
-  label: URL
+- field_name: access_url
+  label: Webbadress för åtkomst
   preset: resource_url_upload
+  
+#- field_name: download_url
+#  label: Webbadress för nedladdning
+#  preset: resource_url_upload  
 
-- field_name: resource_name
+
+- field_name: name
   label:
-    sv: Resursnamn  
-    en: Resource Name
+    sv: Titel  
+    en: Title
   form_placeholder: 
     sv: t.ex. Guldpriser januari 2011
     en: eg. January 2011 Gold Prices
 
 - field_name: description
   label:
-    sv: Resurssammanfattning  
-    en: Resource Abstract
+    sv: Beskrivning  
+    en: Description
   form_snippet: markdown.html
   form_placeholder:
     sv: Beskrivande information om datasetet  
     en: Some useful notes about the data
 
 - field_name: format
-  label: Format
+  label: Vanliga mediatyper
   preset: resource_format_autocomplete
   
-- field_name: resource_license_id
+- field_name: license
   label:
-    sv: Licens för resurs  
-    en: Resource License
+    sv: Licens - Creative Commons  
+    en: License - Creative Commons
   form_snippet: license.html
   help_text: License definitions and additional information can be found at http://opendefinition.org/  
   
-- field_name: resource_language
+- field_name: language
   label:
-    sv: Språk i resurs  
-    en: Language of resource
+    sv: Språk  
+    en: Language
   form_placeholder: 
-    sv: Språk i resurs  
-    en: Language of resource
+    sv: Språk   
+    en: Language
   
-- field_name: resource_owner
-  label:
-    sv: Resursägare  
-    en: Resource Owner
-  form_placeholder: 
-    sv: Resursägare  
-    en: Resource Owner
-  
-- field_name: resource_owner_email
-  label:
-    sv: E-post till resursägare  
-    en: Resource Owner Email
-  form_placeholder: 
-    sv: E-post till resursägare  
-    en: Resource Owner Email
-
-- field_name: resource_contact
-  label:
-    sv: Resurskontakt  
-    en: Resource Contact
-  form_placeholder: 
-    sv: Resurskontakt  
-    en: Resource Contact
-
-- field_name: resource_contact_email
-  label:
-    sv: E-post till resurskontakt  
-    en: Resource Contact Email
-  form_placeholder: 
-    sv: E-post till resurskontakt  
-    en: Resource Contact Email
+#- field_name: resource_owner
+#  label:
+#    sv: Resursägare  
+#    en: Resource Owner
+#  form_placeholder: 
+#    sv: Resursägare  
+#    en: Resource Owner
+#  
+#- field_name: resource_owner_email
+#  label:
+#    sv: E-post till resursägare  
+#    en: Resource Owner Email
+#  form_placeholder: 
+#    sv: E-post till resursägare  
+#    en: Resource Owner Email
+#
+#- field_name: resource_contact
+#  label:
+#    sv: Resurskontakt  
+#    en: Resource Contact
+#  form_placeholder: 
+#    sv: Resurskontakt  
+#    en: Resource Contact
+#
+#- field_name: resource_contact_email
+#  label:
+#    sv: E-post till resurskontakt  
+#    en: Resource Contact Email
+#  form_placeholder: 
+#    sv: E-post till resurskontakt  
+#    en: Resource Contact Email
 
 - field_name: completeness
   label:
@@ -227,13 +884,13 @@ resource_fields:
     sv: uppdateringsfrekvens  
     en: update frequency
 
-- field_name: area
+- field_name: spatial_resolution_in_meters
   label:
-    sv: Område  
-    en: Area
+    sv: Rumslig upplösning  
+    en: Spatial resolution
   form_placeholder: 
-    sv: Område  
-    en: Area
+    sv: Rumslig upplösning  
+    en: Spatial resolution
 
 - field_name: coordinate_system
   label:
@@ -312,3 +969,19 @@ resource_fields:
     label: 
       sv: Under utveckling
       en: Under development        
+      
+- field_name: issued
+  label: Utgivningsdatum
+  preset: date   
+
+- field_name: modified
+  label: Ändringsdatum
+  preset: date
+  required: false
+  validators: ignore_missing
+  
+- field_name: rights
+  label: Rights
+  form_snippet: markdown.html
+  display_snippet: markdown.html
+  help_text: Some statement about the rights associated with the resource.  

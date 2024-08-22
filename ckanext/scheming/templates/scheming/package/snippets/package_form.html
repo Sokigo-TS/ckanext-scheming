@@ -96,9 +96,12 @@
           {% endblock %}
         {% endblock %}    
 		
-	  {%- elif field.field_name == 'linked_dataset' -%}
+	  {%- elif field.field_name == 'source' -%}
          {%- snippet 'snippets/Datasets.html', data=data -%}
 		
+	 {%- elif field.field_name == 'Utgivare' -%}
+         {%- snippet 'snippets/Publisher_Data.html', data=data -%}
+		 
 	  {%- else -%}
          {%- snippet 'scheming/snippets/form_field.html',
            field=field,
