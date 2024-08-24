@@ -527,7 +527,7 @@ dataset_fields:
 
   
 - field_name: access_rights
-  required: true
+  #required: true
   preset: select
   label: 
     sv: Åtkomsträttigheter
@@ -677,7 +677,7 @@ dataset_fields:
     sv: Namngivet geografiskt område
     en: Named geographic area
   validators: url_validator
-  required: true
+  #required: true
   
 
 - field_name: temporal_start
