@@ -46,6 +46,7 @@ dataset_fields:
     en: Publisher
   preset: select
   choices_helper: get_publisher_from_json  
+  help_text: Egenskapen hänvisar till en enhet (organisation) som ansvarar för att göra datamängden tillgänglig.
 
 
 - field_name: publisher_uri
@@ -460,6 +461,10 @@ dataset_fields:
       label:
         sv: Spanska
         en: Spanish
+    - value: Svenska
+      label:
+        sv: Svenska
+        en: Swedish    
     - value: Swahili
       label:
         sv: Swahili
@@ -544,7 +549,8 @@ dataset_fields:
     - value: Publik
       label: 
         sv: Publik
-        en: Public    
+        en: Public
+  help_text: Den här egenskapen hänvisar till information som indikerar huruvida datamängden/datatjänsten innehåller öppna data, har åtkomstrestriktioner eller inte är offentlig.         
  
  
 - field_name: source
@@ -552,7 +558,8 @@ dataset_fields:
     sv: Källa
     en: source
   preset: select
-  choices_helper: get_datasets      
+  choices_helper: get_datasets
+  help_text: En referens till en relaterad datamängd från vilken den beskrivna datamängden härleds.  
 
 - field_name: frequency
   preset: select
@@ -648,6 +655,7 @@ dataset_fields:
       label:
         sv: aldrig
         en: never
+  help_text: Avser datamängdens uppdateringsfrekvens.
 
 - field_name: issued
   label: 
@@ -655,6 +663,7 @@ dataset_fields:
     en: Issue date
   preset: date 
   form_placeholder: YYYY-MM-DD
+  help_text: Egenskapen innehåller katalogens utgivningsdatum.
   
 - field_name: modified
   label: 
@@ -662,7 +671,7 @@ dataset_fields:
     en: Modified date
   preset:  date
   form_placeholder: YYYY-MM-DD
-
+  help_text: Datum för senaste ändring av distributionen.
 
 - field_name: conforms_to
   label: 
@@ -670,12 +679,13 @@ dataset_fields:
     en: Fulfills
   preset: multiple_text
   validators: ignore_missing scheming_multiple_text
-  help_text: An implementing rule or other specification that the dataset follows.
+  help_text: Egenskapen hänvisar till en tillämpningsföreskrift eller annan specifikation.
 
 - field_name: spatial_uri
   label: 
     sv: Namngivet geografiskt område
     en: Named geographic area
+  help_text: Det geografiska området som omfattas av datamängdsserien. Det rekommenderas att använda Geonames URI:er i följande form- http://sws.geonames.org/6695072. Om ett namgivet geografiskt område tillhandahålls på serien ska det motsvara unionen av de namngivna geografiska områdena på alla datamängder i serien.  
   #validators: url_validator
   #required: true
   
@@ -685,18 +695,21 @@ dataset_fields:
     sv: Gilltig från
     en: Valid from
   preset: date
+  help_text: Datamängdens giltighetsperiod (startdatum )
 
 - field_name: temporal_end
   label: 
     sv: till datum
     en: to date
-  preset: date        
+  preset: date
+  help_text: Datamängdens giltighetsperiod (slutdatum )  
   
   
 - field_name: spatial_resolution_in_meters
   label: 
     sv: Rumslig upplösning
     en: Spatial resolution
+  help_text: Den minsta rumsliga upplösning som går att urskilja i datamängdens distribution, given i meter (kan innehålla decimaler).  
 
 
 - field_name: provenance
