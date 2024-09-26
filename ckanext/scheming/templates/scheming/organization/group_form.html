@@ -15,10 +15,28 @@
     {{ h.csrf_input() if 'csrf_input' in h }}
     {%- set schema = h.scheming_get_organization_schema(group_type) -%}
     {%- for field in schema['fields'] -%}
+    
+    {%- if field.field_name is not none and field.field_name == 'custom_form_fields' -%}
+    {% block package_metadata_fields_custom %}
+        {% block custom_fields %}
+          {% snippet 'snippets/custom_form_fields.html', extras=data.extras, errors=errors, limit=3 %}
+        {% endblock %}
+      {% endblock %}    
+
+      {%- elif field.field_name == 'image_display_url' -%}
+          {% set is_upload = data.image_url and not data.image_url.startswith('http') %}
+          {% set is_upload = data.image_url and not data.image_url.startswith('http') %}
+          {% set is_url = data.image_url and data.image_url.startswith('http') %}
+      
+          {{ form.image_upload(data, errors, is_upload_enabled=h.uploads_enabled(), is_url=is_url, is_upload=is_upload) }}
+  
+
+      {%- else -%}
         {%- if field.form_snippet is not none -%}
           {%- snippet 'scheming/snippets/form_field.html',
           field=field, data=data, errors=errors, licenses=licenses,
           entity_type='organization', object_type=group_type -%}
+        {%- endif -%}
         {%- endif -%}
     {%- endfor -%}
 

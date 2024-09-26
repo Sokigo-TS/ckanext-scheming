@@ -102,12 +102,11 @@
       {% endblock %}
 
       
-
+{%- set custom_metadata_fields = h.get_custom_metadata_fields() -%}
   {%- for field in schema.dataset_fields -%}
      
-    {%- if field.field_name in ['access_rights', 'source', 'frequency', 'issued', 'modified', 'conforms_to', 'spatial_uri', 'temporal_start', 'temporal_end', 'spatial_resolution_in_meters', 
-	'provenance', 'Klassificering', 'Utgivare', 'publisher_uri', 'publisher_email', 'publisher_url', 'publisher_type', 'contact_uri', 'contact_name', 'contact_email' ] -%}
-		
+	  {%- if field.field_name in  custom_metadata_fields -%} 
+	 
       <tr>
         <th scope="row" class="dataset-label">{{
           h.scheming_language_text(field.label) }}</th>

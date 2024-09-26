@@ -1,0 +1,108 @@
+scheming_version: 2
+organization_type: organization
+about: A reimplementation of the default CKAN dataset schema
+about_url: http://github.com/ckan/ckanext-scheming
+
+
+fields:
+
+- field_name: title
+  label:
+    sv: Namn
+    en: Name
+  preset: title
+  validators: ignore_missing unicode_safe
+  form_placeholder:  
+    sv: Min organisation
+    en: My Organization
+
+- field_name: name
+  label: URL
+  preset: dataset_slug
+  form_placeholder: 
+    sv: t.ex. mitt-dataset
+    en: eg. my-dataset
+
+- field_name: notes
+  label:
+    sv: Beskrivning  
+    en: Description
+  form_snippet: markdown.html
+  form_placeholder:
+    sv: Lite information om min organisation...  
+    en: A little information about my organization...
+
+- field_name: image_display_url
+  label: Image URL
+  preset: resource_url_upload
+  form_placeholder: http://example.com/my-image.jpg
+
+
+
+- field_name: Utgivare
+  label: 
+    sv: Utgivare
+    en: Publisher
+  preset: select
+  form_snippet: snippets/Publisher_Data.html
+  choices_helper: get_publisher_from_json  
+  help_text: Egenskapen hänvisar till en enhet (organisation) som ansvarar för att göra datamängden tillgänglig.
+
+
+- field_name: publisher_uri
+  label: 
+    sv: Utgivare URI
+    en: Publisher URI
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: publisher_email
+  label: 
+    sv: Utgivare Email
+    en: Publisher Email
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: publisher_url
+  label: 
+    sv: Utgivare URL
+    en: Publisher URL
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: publisher_type
+  label: 
+    sv: Utgivare Type
+    en: Publisher Type
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+
+- field_name: contact_uri
+  label:  
+    sv: Producent organisation
+    en: Producer organisation
+
+- field_name: contact_name
+  label:   
+    sv: Producent namn
+    en: Producer name
+    
+- field_name: contact_email
+  label: 
+    sv: Producent e-post
+    en: Producer email
+  form_placeholder: joe@example.com
+  display_property: dc:contributor
+  display_snippet: email.html
+  display_email_name_field: contact_name
+  
+
+- field_name: custom_form_fields
+  label: Custom Field
+  form_snippet: snippets/custom_form_fields.html
+  
