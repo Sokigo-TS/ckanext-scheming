@@ -681,6 +681,53 @@ dataset_fields:
   validators: ignore_missing scheming_multiple_text
   help_text: Egenskapen hänvisar till en tillämpningsföreskrift eller annan specifikation.
 
+#- field_name: applicable_legislation
+#  label:
+#    sv: V�rdefull datam�ngd
+#    en: High Value Dataset
+#  preset: multiple_checkbox
+#  validators: ignore_missing
+#  choices:
+#    - value: http://data.europa.eu/eli/reg_impl/2023/138/oj
+#      label:
+#        sv: Ja
+#        en: Yes
+#  help_text: Om v�rdefull datam�ngd enligt "Kommissionens genomf�randef�rordning (EU) 2023/138"
+#
+#- field_name: hvd_category
+#  label:
+#    sv: Kategori f�r v�rdefulla datam�ngder
+#    en: HVD category
+#  preset: multiple_select
+#  validators: ignore_missing scheming_multiple_text
+#  choices:
+#    - value: http://data.europa.eu/bna/c_164e0bf5
+#      label:
+#        sv: Meteorologiska data
+#        en: Meteorological
+#    - value: http://data.europa.eu/bna/c_a9135398
+#      label:
+#        sv: F�retag och f�retags�gande
+#        en: Companies and company ownership
+#    - value: http://data.europa.eu/bna/c_ac64a52d
+#      label:
+#        sv: Geospatiala data
+#        en: Geospatial
+#    - value: http://data.europa.eu/bna/c_b79e35eb
+#      label:
+#        sv: R�rlighet
+#        en: Mobility
+#    - value: http://data.europa.eu/bna/c_dd313021
+#      label:
+#        sv: Jordobservation och milj�
+#        en: Earth observation and environment
+#    - value: http://data.europa.eu/bna/c_e1da4e07
+#      label:
+#        sv: Statistik
+#        en: Statistics
+#  help_text: Anges bara om v�rdefull datam�ngd enligt "Kommissionens genomf�randef�rordning (EU) 2023/138"
+
+
 - field_name: spatial_uri
   label: 
     sv: Namngivet geografiskt område
@@ -797,6 +844,57 @@ resource_fields:
     sv: Språk   
     en: Language
   
+- field_name: spatial_resolution_in_meters
+  label:
+    sv: Rumslig upplösning  
+    en: Spatial resolution
+  form_placeholder: 
+    sv: Rumslig upplösning  
+    en: Spatial resolution 
+ 
+   
+- field_name: status
+  preset: select
+  label: Status
+  form_placeholder: status
+  choices:
+  - value: Avvecklad  
+    label: 
+      sv: Avvecklad
+      en: Discontinued 
+  - value: Färdig 
+    label: 
+      sv: Färdig 
+      en: Complete   
+  - value: Tillbakadragen
+    label: 
+      sv: Tillbakadragen
+      en: Withdrawn  
+  - value: Under utveckling
+    label: 
+      sv: Under utveckling
+      en: Under development    
+ 
+- field_name: issued
+  label: 
+    sv: Utgivningsdatum
+    en: Issue date
+  preset: date   
+
+- field_name: modified
+  label: 
+    sv: Ändringsdatum
+    en: Modified date
+  preset: date
+  required: false
+  validators: ignore_missing 
+  
+- field_name: rights
+  label: Rights
+  form_snippet: markdown.html
+  display_snippet: markdown.html
+  help_text: Some statement about the rights associated with the resource.    
+ 
 #- field_name: resource_owner
 #  label:
 #    sv: Resursägare  
@@ -853,14 +951,6 @@ resource_fields:
     sv: uppdateringsfrekvens  
     en: update frequency
 
-- field_name: spatial_resolution_in_meters
-  label:
-    sv: Rumslig upplösning  
-    en: Spatial resolution
-  form_placeholder: 
-    sv: Rumslig upplösning  
-    en: Spatial resolution
-
 - field_name: coordinate_system
   label:
     sv: Koordinatsystem  
@@ -916,45 +1006,4 @@ resource_fields:
   form_placeholder: 
     sv: väst  
     en: west  
-   
-- field_name: status
-  preset: select
-  label: Status
-  form_placeholder: status
-  choices:
-  - value: Avvecklad  
-    label: 
-      sv: Avvecklad
-      en: Discontinued 
-  - value: Färdig 
-    label: 
-      sv: Färdig 
-      en: Complete   
-  - value: Tillbakadragen
-    label: 
-      sv: Tillbakadragen
-      en: Withdrawn  
-  - value: Under utveckling
-    label: 
-      sv: Under utveckling
-      en: Under development        
-      
-- field_name: issued
-  label: 
-    sv: Utgivningsdatum
-    en: Issue date
-  preset: date   
-
-- field_name: modified
-  label: 
-    sv: Ändringsdatum
-    en: Modified date
-  preset: date
-  required: false
-  validators: ignore_missing
-  
-- field_name: rights
-  label: Rights
-  form_snippet: markdown.html
-  display_snippet: markdown.html
-  help_text: Some statement about the rights associated with the resource.  
+    
