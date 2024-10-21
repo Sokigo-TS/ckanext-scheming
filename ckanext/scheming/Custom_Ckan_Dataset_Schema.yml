@@ -149,387 +149,388 @@ dataset_fields:
   form_placeholder: Language
   preset: select
   choices:
-    - value: Albanian
+    - value: http://publications.europa.eu/resource/authority/language/SQI
       label:
         sv: Albanska
         en: Albanian
-    - value: Arabic
+    - value: http://publications.europa.eu/resource/authority/language/ARA
       label:
         sv: Arabiska
         en: Arabic
-    - value: Armenian
+    - value: http://publications.europa.eu/resource/authority/language/HYE
       label:
         sv: Armeniska
         en: Armenian
-    - value: Azerbaijani
+    - value: http://publications.europa.eu/resource/authority/language/AZE
       label:
         sv: Azerbajdzjanska
         en: Azerbaijani
-    - value: Basque
+    - value: http://publications.europa.eu/resource/authority/language/EUS
       label:
         sv: Baskiska
         en: Basque
-    - value: Belarusian
+    - value: http://publications.europa.eu/resource/authority/language/BEL
       label:
         sv: Vitryska
         en: Belarusian
-    - value: Bengali
+    - value: http://publications.europa.eu/resource/authority/language/BEN
       label:
         sv: Bengali
         en: Bengali
-    - value: Bosnian
+    - value: http://publications.europa.eu/resource/authority/language/BOS
       label:
         sv: Bosniska
         en: Bosnian
-    - value: Breton
+    - value: http://publications.europa.eu/resource/authority/language/BRE
       label:
         sv: Bretonska
         en: Breton
-    - value: Bulgarian
+    - value: http://publications.europa.eu/resource/authority/language/BUL
       label:
         sv: Bulgariska
         en: Bulgarian
-    - value: Catalan
+    - value: http://publications.europa.eu/resource/authority/language/CAT
       label:
         sv: Katalanska
         en: Catalan
-    - value: Chinese
+    - value: http://publications.europa.eu/resource/authority/language/ZHO
       label:
         sv: Kinesiska
         en: Chinese
-    - value: Corsican
+    - value: http://publications.europa.eu/resource/authority/language/COS
       label:
         sv: Korsikanska
         en: Corsican
-    - value: Croatian
+    - value: http://publications.europa.eu/resource/authority/language/HRV
       label:
         sv: Kroatiska
         en: Croatian
-    - value: Czech
+    - value: http://publications.europa.eu/resource/authority/language/CES
       label:
         sv: Tjeckiska
         en: Czech
-    - value: Danish
+    - value: http://publications.europa.eu/resource/authority/language/DAN
       label:
         sv: Danska
         en: Danish
-    - value: divehi
+    - value: http://publications.europa.eu/resource/authority/language/DIV
       label:
         sv: Divehi
         en: Divehi
-    - value: Dutch
+    - value: http://publications.europa.eu/resource/authority/language/NLD
       label:
         sv: Holländska
         en: Dutch
-    - value: English
+    - value: http://publications.europa.eu/resource/authority/language/ENG
       label:
         sv: Engelska
         en: English
-    - value: Esperanto
+    - value: http://publications.europa.eu/resource/authority/language/EPO
       label:
         sv: Esperanto
         en: Esperanto
-    - value: Estonian
+    - value: http://publications.europa.eu/resource/authority/language/EST
       label:
         sv: Estniska
         en: Estonian
-    - value: Faroese
+    - value: http://publications.europa.eu/resource/authority/language/FAO
       label:
         sv: Färöiska
         en: Faroese
-    - value: Finnish
+    - value: http://publications.europa.eu/resource/authority/language/FIN
       label:
         sv: Finska
         en: Finnish
-    - value: Flemish
+    - value: http://publications.europa.eu/resource/authority/language/VLS
       label:
         sv: Flamländska
         en: Flemish
-    - value: French
+    - value: http://publications.europa.eu/resource/authority/language/FRA
       label:
         sv: Franska
         en: French
-    - value: Frisian
+    - value: http://publications.europa.eu/resource/authority/language/FRY
       label:
         sv: Frisiska
         en: Frisian
-    - value: Galician
+    - value: http://publications.europa.eu/resource/authority/language/GLG
       label:
         sv: Galiciska
         en: Galician
-    - value: Georgian
+    - value: http://publications.europa.eu/resource/authority/language/KAT
       label:
         sv: Georgiska
         en: Georgian
-    - value: German
+    - value: http://publications.europa.eu/resource/authority/language/DEU
       label:
         sv: Tyska
         en: German
-    - value: Greek
+    - value: http://publications.europa.eu/resource/authority/language/ELL
       label:
         sv: Grekiska
         en: Greek
-    - value: Greenlandic
+    - value: http://publications.europa.eu/resource/authority/language/KAL
       label:
         sv: Grönländska
         en: Greenlandic
-    - value: Hebrew
+    - value: http://publications.europa.eu/resource/authority/language/HEB
       label:
         sv: Hebreiska
         en: Hebrew
-    - value: Hindi
+    - value: http://publications.europa.eu/resource/authority/language/HIN
       label:
         sv: Hindi
         en: Hindi
-    - value: Hungarian
+    - value: http://publications.europa.eu/resource/authority/language/HUN
       label:
         sv: Ungerska
         en: Hungarian
-    - value: Icelandic
+    - value: http://publications.europa.eu/resource/authority/language/ISL
       label:
         sv: Isländska
         en: Icelandic
-    - value: Indonesian
+    - value: http://publications.europa.eu/resource/authority/language/IND
       label:
         sv: Indonesiska
         en: Indonesian
-    - value: Interlingua
+    - value: http://publications.europa.eu/resource/authority/language/INA
       label:
         sv: Interlingua
         en: Interlingua
-    - value: Irish
+    - value: http://publications.europa.eu/resource/authority/language/GLE
       label:
         sv: Irländska
         en: Irish
-    - value: Italian
+    - value: http://publications.europa.eu/resource/authority/language/ITA
       label:
         sv: Italienska
         en: Italian
-    - value: Japanese
+    - value: http://publications.europa.eu/resource/authority/language/JPN
       label:
         sv: Japanska
         en: Japanese
-    - value: Kashubian
+    - value: http://publications.europa.eu/resource/authority/language/CSB
       label:
         sv: Kasjubiska
         en: Kashubian
-    - value: Kazakh
+    - value: http://publications.europa.eu/resource/authority/language/KAZ
       label:
         sv: Kazakiska
         en: Kazakh
-    - value: Khmer
+    - value: http://publications.europa.eu/resource/authority/language/KHM
       label:
         sv: Khmer
         en: Khmer
-    - value: Korean
+    - value: http://publications.europa.eu/resource/authority/language/KOR
       label:
         sv: Koreanska
         en: Korean
-    - value: Kurdish
+    - value: http://publications.europa.eu/resource/authority/language/KUR
       label:
         sv: Kurdiska
         en: Kurdish
-    - value: Kyrgyz
+    - value: http://publications.europa.eu/resource/authority/language/KIR
       label:
         sv: Kirgiziska
         en: Kyrgyz
-    - value: Lao
+    - value: http://publications.europa.eu/resource/authority/language/LAO
       label:
         sv: Lao
         en: Lao
-    - value: Latin
+    - value: http://publications.europa.eu/resource/authority/language/LAT
       label:
         sv: Latin
         en: Latin
-    - value: Latvian
+    - value: http://publications.europa.eu/resource/authority/language/LAV
       label:
         sv: Lettiska
         en: Latvian
-    - value: Lithuanian
+    - value: http://publications.europa.eu/resource/authority/language/LIT
       label:
         sv: Litauiska
         en: Lithuanian
-    - value: Luxembourgish
+    - value: http://publications.europa.eu/resource/authority/language/LTZ
       label:
         sv: Luxemburgiska
         en: Luxembourgish
-    - value: Macedonian
+    - value: http://publications.europa.eu/resource/authority/language/MKD
       label:
         sv: Makedonska
         en: Macedonian
-    - value: Malagasy
+    - value: http://publications.europa.eu/resource/authority/language/MLG
       label:
-        sv: Madagaskiska
+        sv: Malagassiska
         en: Malagasy
-    - value: Malay
+    - value: http://publications.europa.eu/resource/authority/language/MSA
       label:
-        sv: Malaysiska
+        sv: Malajiska
         en: Malay
-    - value: Maltese
+    - value: http://publications.europa.eu/resource/authority/language/MLT
       label:
         sv: Maltesiska
         en: Maltese
-    - value: Minangkabau
+    - value: http://publications.europa.eu/resource/authority/language/MIN
       label:
         sv: Minangkabau
         en: Minangkabau
-    - value: Moldovan
+    - value: http://publications.europa.eu/resource/authority/language/MOL
       label:
         sv: Moldaviska
         en: Moldovan
-    - value: Mongolian
+    - value: http://publications.europa.eu/resource/authority/language/MON
       label:
         sv: Mongoliska
         en: Mongolian
-    - value: Montenegrin
+    - value: http://publications.europa.eu/resource/authority/language/0E0
       label:
         sv: Montenegrinska
         en: Montenegrin
-    - value: Nepali
+    - value: http://publications.europa.eu/resource/authority/language/NEP
       label:
         sv: Nepalesiska
         en: Nepali
-    - value: Northern Sámi
+    - value: http://publications.europa.eu/resource/authority/language/SME
       label:
         sv: Nordsamiska
         en: Northern Sámi
-    - value: Norwegian
+    - value: http://publications.europa.eu/resource/authority/language/NOR
       label:
         sv: Norska
         en: Norwegian
-    - value: Occitan
+    - value: http://publications.europa.eu/resource/authority/language/OCI
       label:
         sv: Occitanska
         en: Occitan
-    - value: Ossetian
+    - value: http://publications.europa.eu/resource/authority/language/OSS
       label:
         sv: Ossetiska
         en: Ossetian
-    - value: Persian
+    - value: http://publications.europa.eu/resource/authority/language/FAS
       label:
         sv: Persiska
         en: Persian
-    - value: Polish
+    - value: http://publications.europa.eu/resource/authority/language/POL
       label:
         sv: Polska
         en: Polish
-    - value: Portuguese
+    - value: http://publications.europa.eu/resource/authority/language/POR
       label:
         sv: Portugisiska
         en: Portuguese
-    - value: Romani
+    - value: http://publications.europa.eu/resource/authority/language/ROM
       label:
         sv: Romani
         en: Romani
-    - value: Romanian
+    - value: http://publications.europa.eu/resource/authority/language/RON
       label:
         sv: Rumänska
         en: Romanian
-    - value: Romansh
+    - value: http://publications.europa.eu/resource/authority/language/ROH
       label:
         sv: Rätoromanska
         en: Romansh
-    - value: Russian
+    - value: http://publications.europa.eu/resource/authority/language/RUS
       label:
         sv: Ryska
         en: Russian
-    - value: Scottish Gaelic
+    - value: http://publications.europa.eu/resource/authority/language/GLA
       label:
         sv: Skotsk gaeliska
         en: Scottish Gaelic
-    - value: Serbian
+    - value: http://publications.europa.eu/resource/authority/language/SRP
       label:
         sv: Serbiska
         en: Serbian
-    - value: Serbo-Croatian
+    - value: http://publications.europa.eu/resource/authority/language/HBS
       label:
         sv: Serbokroatiska
         en: Serbo-Croatian
-    - value: Sinhala
+    - value: http://publications.europa.eu/resource/authority/language/SIN
       label:
         sv: Singalesiska
         en: Sinhala
-    - value: Slovak
+    - value: http://publications.europa.eu/resource/authority/language/SLK
       label:
         sv: Slovakiska
         en: Slovak
-    - value: Slovenian
+    - value: http://publications.europa.eu/resource/authority/language/SLV
       label:
         sv: Slovenska
         en: Slovenian
-    - value: Spanish
+    - value: http://publications.europa.eu/resource/authority/language/SPA
       label:
         sv: Spanska
         en: Spanish
-    - value: Svenska
+    - value: http://publications.europa.eu/resource/authority/language/SWE
       label:
         sv: Svenska
         en: Swedish    
-    - value: Swahili
+    - value: http://publications.europa.eu/resource/authority/language/SWA
       label:
         sv: Swahili
         en: Swahili
-    - value: Tajik
+    - value: http://publications.europa.eu/resource/authority/language/TGK
       label:
         sv: Tadzjikiska
         en: Tajik
-    - value: Tamil
+    - value: http://publications.europa.eu/resource/authority/language/TAM
       label:
         sv: Tamil
         en: Tamil
-    - value: Thai
+    - value: http://publications.europa.eu/resource/authority/language/THA
       label:
         sv: Thailändska
         en: Thai
-    - value: Tibetan
+    - value: http://publications.europa.eu/resource/authority/language/BOD
       label:
         sv: Tibetanska
         en: Tibetan
-    - value: Turkish
+    - value: http://publications.europa.eu/resource/authority/language/TUR
       label:
         sv: Turkiska
         en: Turkish
-    - value: Turkmen
+    - value: http://publications.europa.eu/resource/authority/language/TUK
       label:
         sv: Turkmeniska
         en: Turkmen
-    - value: Ukrainian
+    - value: http://publications.europa.eu/resource/authority/language/UKR
       label:
         sv: Ukrainska
         en: Ukrainian
-    - value: Urdu
+    - value: http://publications.europa.eu/resource/authority/language/URD
       label:
         sv: Urdu
         en: Urdu
-    - value: Uzbek
+    - value: http://publications.europa.eu/resource/authority/language/UZB
       label:
         sv: Uzbekiska
         en: Uzbek
-    - value: Valencian
+    - value: http://publications.europa.eu/resource/authority/language/0D0
       label:
         sv: Valensianska
         en: Valencian
-    - value: Vietnamese
+    - value: http://publications.europa.eu/resource/authority/language/VIE
       label:
         sv: Vietnamesiska
         en: Vietnamese
-    - value: Walloon
+    - value: http://publications.europa.eu/resource/authority/language/WLN
       label:
         sv: Vallonska
         en: Walloon
-    - value: Welsh
+    - value: http://publications.europa.eu/resource/authority/language/CYM
       label:
-        sv: Waleisiska
+        sv: Kymriska
         en: Welsh
-    - value: Yiddish
+    - value: http://publications.europa.eu/resource/authority/language/YID
       label:
         sv: Jiddisch
         en: Yiddish
-    - value: Zulu
+    - value: http://publications.europa.eu/resource/authority/language/ZUL
       label:
         sv: Zulu
         en: Zulu
-
+  validators: ignore_missing
+  
   
 - field_name: access_rights
   #required: true
@@ -538,18 +539,18 @@ dataset_fields:
     sv: Åtkomsträttigheter
     en: Access rights
   choices:
-    - value: Begränsad 
-      label: 
-        sv: Begränsad
-        en: Limited
-    - value: Ej offentlig
-      label: 
-        sv: Ej offentlig
-        en: Not public  
-    - value: Publik
-      label: 
-        sv: Publik
-        en: Public
+   - value: http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+     label: 
+       sv: Ej offentlig
+       en: Not public  
+   - value: http://publications.europa.eu/resource/authority/access-right/PUBLIC
+     label: 
+       sv: Publik
+       en: Public
+   - value: http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+     label: 
+       sv: Begränsad
+       en: Limited
   help_text: Den här egenskapen hänvisar till information som indikerar huruvida datamängden/datatjänsten innehåller öppna data, har åtkomstrestriktioner eller inte är offentlig.         
  
  
@@ -566,92 +567,92 @@ dataset_fields:
   label: 
     sv: Uppdateringsfrekvens
     en: Update frequency
-  choices:
-    - value: kontinuerlig
+ choices:
+    - value: http://publications.europa.eu/resource/authority/frequency/CONT
       label:
         sv: kontinuerlig
         en: continuous
-    - value: uppdateras kontinuerligt
+    - value: http://publications.europa.eu/resource/authority/frequency/UPDATE_CONT
       label:
         sv: uppdateras kontinuerligt
         en: updated continuously
-    - value: två gånger per dag
+    - value: http://publications.europa.eu/resource/authority/frequency/DAILY_2
       label:
         sv: två gånger per dag
         en: twice daily
-    - value: dagligen
+    - value: http://publications.europa.eu/resource/authority/frequency/DAILY
       label:
         sv: dagligen
         en: daily
-    - value: tre gånger per vecka
+    - value: http://publications.europa.eu/resource/authority/frequency/WEEKLY_3
       label:
         sv: tre gånger per vecka
         en: three times per week
-    - value: två gånger per vecka
+    - value: http://publications.europa.eu/resource/authority/frequency/WEEKLY_2
       label:
         sv: två gånger per vecka
         en: twice weekly
-    - value: veckovis
+    - value: http://publications.europa.eu/resource/authority/frequency/WEEKLY
       label:
         sv: veckovis
         en: weekly
-    - value: tre gånger per månad
+    - value: http://publications.europa.eu/resource/authority/frequency/MONTHLY_3
       label:
         sv: tre gånger per månad
         en: three times per month
-    - value: varannan vecka
+    - value: http://publications.europa.eu/resource/authority/frequency/BIWEEKLY
       label:
         sv: varannan vecka
         en: biweekly
-    - value: två gånger per månad
+    - value: http://publications.europa.eu/resource/authority/frequency/MONTHLY_2
       label:
         sv: två gånger per månad
         en: twice monthly
-    - value: månatligen
+    - value: http://publications.europa.eu/resource/authority/frequency/MONTHLY
       label:
         sv: månatligen
         en: monthly
-    - value: varannan månad
+    - value: http://publications.europa.eu/resource/authority/frequency/BIMONTHLY
       label:
         sv: varannan månad
         en: every other month
-    - value: kvartalsvis
+    - value: http://publications.europa.eu/resource/authority/frequency/QUARTERLY
       label:
         sv: kvartalsvis
         en: quarterly
-    - value: tre gånger per år
+    - value: http://publications.europa.eu/resource/authority/frequency/ANNUAL_3
       label:
         sv: tre gånger per år
         en: three times per year
-    - value: halvårsvis
+    - value: http://publications.europa.eu/resource/authority/frequency/ANNUAL_2
       label:
         sv: halvårsvis
         en: biannually
-    - value: årligen
+    - value: http://publications.europa.eu/resource/authority/frequency/ANNUAL
       label:
         sv: årligen
         en: annually
-    - value: vartannat år
+    - value: http://publications.europa.eu/resource/authority/frequency/BIENNIAL
       label:
         sv: vartannat år
         en: every other year
-    - value: vart tredje år
+    - value: http://publications.europa.eu/resource/authority/frequency/TRIENNIAL
       label:
         sv: vart tredje år
         en: every third year
-    - value: oregelbundet
+    - value: http://publications.europa.eu/resource/authority/frequency/IRREG
       label:
         sv: oregelbundet
         en: irregularly
-    - value: annan
+    - value: http://publications.europa.eu/resource/authority/frequency/OTHER
       label:
         sv: annan
         en: other
-    - value: okänd
+    - value: http://publications.europa.eu/resource/authority/frequency/UNKNOWN
       label:
         sv: okänd
         en: unknown
-    - value: aldrig
+    - value: http://publications.europa.eu/resource/authority/frequency/NEVER
       label:
         sv: aldrig
         en: never
@@ -843,6 +844,390 @@ resource_fields:
   form_placeholder: 
     sv: Språk   
     en: Language
+  preset: select  
+  choices:
+    - value: http://publications.europa.eu/resource/authority/language/SQI
+      label:
+        sv: Albanska
+        en: Albanian
+    - value: http://publications.europa.eu/resource/authority/language/ARA
+      label:
+        sv: Arabiska
+        en: Arabic
+    - value: http://publications.europa.eu/resource/authority/language/HYE
+      label:
+        sv: Armeniska
+        en: Armenian
+    - value: http://publications.europa.eu/resource/authority/language/AZE
+      label:
+        sv: Azerbajdzjanska
+        en: Azerbaijani
+    - value: http://publications.europa.eu/resource/authority/language/EUS
+      label:
+        sv: Baskiska
+        en: Basque
+    - value: http://publications.europa.eu/resource/authority/language/BEL
+      label:
+        sv: Vitryska
+        en: Belarusian
+    - value: http://publications.europa.eu/resource/authority/language/BEN
+      label:
+        sv: Bengali
+        en: Bengali
+    - value: http://publications.europa.eu/resource/authority/language/BOS
+      label:
+        sv: Bosniska
+        en: Bosnian
+    - value: http://publications.europa.eu/resource/authority/language/BRE
+      label:
+        sv: Bretonska
+        en: Breton
+    - value: http://publications.europa.eu/resource/authority/language/BUL
+      label:
+        sv: Bulgariska
+        en: Bulgarian
+    - value: http://publications.europa.eu/resource/authority/language/CAT
+      label:
+        sv: Katalanska
+        en: Catalan
+    - value: http://publications.europa.eu/resource/authority/language/ZHO
+      label:
+        sv: Kinesiska
+        en: Chinese
+    - value: http://publications.europa.eu/resource/authority/language/COS
+      label:
+        sv: Korsikanska
+        en: Corsican
+    - value: http://publications.europa.eu/resource/authority/language/HRV
+      label:
+        sv: Kroatiska
+        en: Croatian
+    - value: http://publications.europa.eu/resource/authority/language/CES
+      label:
+        sv: Tjeckiska
+        en: Czech
+    - value: http://publications.europa.eu/resource/authority/language/DAN
+      label:
+        sv: Danska
+        en: Danish
+    - value: http://publications.europa.eu/resource/authority/language/DIV
+      label:
+        sv: Divehi
+        en: Divehi
+    - value: http://publications.europa.eu/resource/authority/language/NLD
+      label:
+        sv: Holländska
+        en: Dutch
+    - value: http://publications.europa.eu/resource/authority/language/ENG
+      label:
+        sv: Engelska
+        en: English
+    - value: http://publications.europa.eu/resource/authority/language/EPO
+      label:
+        sv: Esperanto
+        en: Esperanto
+    - value: http://publications.europa.eu/resource/authority/language/EST
+      label:
+        sv: Estniska
+        en: Estonian
+    - value: http://publications.europa.eu/resource/authority/language/FAO
+      label:
+        sv: Färöiska
+        en: Faroese
+    - value: http://publications.europa.eu/resource/authority/language/FIN
+      label:
+        sv: Finska
+        en: Finnish
+    - value: http://publications.europa.eu/resource/authority/language/VLS
+      label:
+        sv: Flamländska
+        en: Flemish
+    - value: http://publications.europa.eu/resource/authority/language/FRA
+      label:
+        sv: Franska
+        en: French
+    - value: http://publications.europa.eu/resource/authority/language/FRY
+      label:
+        sv: Frisiska
+        en: Frisian
+    - value: http://publications.europa.eu/resource/authority/language/GLG
+      label:
+        sv: Galiciska
+        en: Galician
+    - value: http://publications.europa.eu/resource/authority/language/KAT
+      label:
+        sv: Georgiska
+        en: Georgian
+    - value: http://publications.europa.eu/resource/authority/language/DEU
+      label:
+        sv: Tyska
+        en: German
+    - value: http://publications.europa.eu/resource/authority/language/ELL
+      label:
+        sv: Grekiska
+        en: Greek
+    - value: http://publications.europa.eu/resource/authority/language/KAL
+      label:
+        sv: Grönländska
+        en: Greenlandic
+    - value: http://publications.europa.eu/resource/authority/language/HEB
+      label:
+        sv: Hebreiska
+        en: Hebrew
+    - value: http://publications.europa.eu/resource/authority/language/HIN
+      label:
+        sv: Hindi
+        en: Hindi
+    - value: http://publications.europa.eu/resource/authority/language/HUN
+      label:
+        sv: Ungerska
+        en: Hungarian
+    - value: http://publications.europa.eu/resource/authority/language/ISL
+      label:
+        sv: Isländska
+        en: Icelandic
+    - value: http://publications.europa.eu/resource/authority/language/IND
+      label:
+        sv: Indonesiska
+        en: Indonesian
+    - value: http://publications.europa.eu/resource/authority/language/INA
+      label:
+        sv: Interlingua
+        en: Interlingua
+    - value: http://publications.europa.eu/resource/authority/language/GLE
+      label:
+        sv: Irländska
+        en: Irish
+    - value: http://publications.europa.eu/resource/authority/language/ITA
+      label:
+        sv: Italienska
+        en: Italian
+    - value: http://publications.europa.eu/resource/authority/language/JPN
+      label:
+        sv: Japanska
+        en: Japanese
+    - value: http://publications.europa.eu/resource/authority/language/CSB
+      label:
+        sv: Kasjubiska
+        en: Kashubian
+    - value: http://publications.europa.eu/resource/authority/language/KAZ
+      label:
+        sv: Kazakiska
+        en: Kazakh
+    - value: http://publications.europa.eu/resource/authority/language/KHM
+      label:
+        sv: Khmer
+        en: Khmer
+    - value: http://publications.europa.eu/resource/authority/language/KOR
+      label:
+        sv: Koreanska
+        en: Korean
+    - value: http://publications.europa.eu/resource/authority/language/KUR
+      label:
+        sv: Kurdiska
+        en: Kurdish
+    - value: http://publications.europa.eu/resource/authority/language/KIR
+      label:
+        sv: Kirgiziska
+        en: Kyrgyz
+    - value: http://publications.europa.eu/resource/authority/language/LAO
+      label:
+        sv: Lao
+        en: Lao
+    - value: http://publications.europa.eu/resource/authority/language/LAT
+      label:
+        sv: Latin
+        en: Latin
+    - value: http://publications.europa.eu/resource/authority/language/LAV
+      label:
+        sv: Lettiska
+        en: Latvian
+    - value: http://publications.europa.eu/resource/authority/language/LIT
+      label:
+        sv: Litauiska
+        en: Lithuanian
+    - value: http://publications.europa.eu/resource/authority/language/LTZ
+      label:
+        sv: Luxemburgiska
+        en: Luxembourgish
+    - value: http://publications.europa.eu/resource/authority/language/MKD
+      label:
+        sv: Makedonska
+        en: Macedonian
+    - value: http://publications.europa.eu/resource/authority/language/MLG
+      label:
+        sv: Malagassiska
+        en: Malagasy
+    - value: http://publications.europa.eu/resource/authority/language/MSA
+      label:
+        sv: Malajiska
+        en: Malay
+    - value: http://publications.europa.eu/resource/authority/language/MLT
+      label:
+        sv: Maltesiska
+        en: Maltese
+    - value: http://publications.europa.eu/resource/authority/language/MIN
+      label:
+        sv: Minangkabau
+        en: Minangkabau
+    - value: http://publications.europa.eu/resource/authority/language/MOL
+      label:
+        sv: Moldaviska
+        en: Moldovan
+    - value: http://publications.europa.eu/resource/authority/language/MON
+      label:
+        sv: Mongoliska
+        en: Mongolian
+    - value: http://publications.europa.eu/resource/authority/language/0E0
+      label:
+        sv: Montenegrinska
+        en: Montenegrin
+    - value: http://publications.europa.eu/resource/authority/language/NEP
+      label:
+        sv: Nepalesiska
+        en: Nepali
+    - value: http://publications.europa.eu/resource/authority/language/SME
+      label:
+        sv: Nordsamiska
+        en: Northern Sámi
+    - value: http://publications.europa.eu/resource/authority/language/NOR
+      label:
+        sv: Norska
+        en: Norwegian
+    - value: http://publications.europa.eu/resource/authority/language/OCI
+      label:
+        sv: Occitanska
+        en: Occitan
+    - value: http://publications.europa.eu/resource/authority/language/OSS
+      label:
+        sv: Ossetiska
+        en: Ossetian
+    - value: http://publications.europa.eu/resource/authority/language/FAS
+      label:
+        sv: Persiska
+        en: Persian
+    - value: http://publications.europa.eu/resource/authority/language/POL
+      label:
+        sv: Polska
+        en: Polish
+    - value: http://publications.europa.eu/resource/authority/language/POR
+      label:
+        sv: Portugisiska
+        en: Portuguese
+    - value: http://publications.europa.eu/resource/authority/language/ROM
+      label:
+        sv: Romani
+        en: Romani
+    - value: http://publications.europa.eu/resource/authority/language/RON
+      label:
+        sv: Rumänska
+        en: Romanian
+    - value: http://publications.europa.eu/resource/authority/language/ROH
+      label:
+        sv: Rätoromanska
+        en: Romansh
+    - value: http://publications.europa.eu/resource/authority/language/RUS
+      label:
+        sv: Ryska
+        en: Russian
+    - value: http://publications.europa.eu/resource/authority/language/GLA
+      label:
+        sv: Skotsk gaeliska
+        en: Scottish Gaelic
+    - value: http://publications.europa.eu/resource/authority/language/SRP
+      label:
+        sv: Serbiska
+        en: Serbian
+    - value: http://publications.europa.eu/resource/authority/language/HBS
+      label:
+        sv: Serbokroatiska
+        en: Serbo-Croatian
+    - value: http://publications.europa.eu/resource/authority/language/SIN
+      label:
+        sv: Singalesiska
+        en: Sinhala
+    - value: http://publications.europa.eu/resource/authority/language/SLK
+      label:
+        sv: Slovakiska
+        en: Slovak
+    - value: http://publications.europa.eu/resource/authority/language/SLV
+      label:
+        sv: Slovenska
+        en: Slovenian
+    - value: http://publications.europa.eu/resource/authority/language/SPA
+      label:
+        sv: Spanska
+        en: Spanish
+    - value: http://publications.europa.eu/resource/authority/language/SWE
+      label:
+        sv: Svenska
+        en: Swedish    
+    - value: http://publications.europa.eu/resource/authority/language/SWA
+      label:
+        sv: Swahili
+        en: Swahili
+    - value: http://publications.europa.eu/resource/authority/language/TGK
+      label:
+        sv: Tadzjikiska
+        en: Tajik
+    - value: http://publications.europa.eu/resource/authority/language/TAM
+      label:
+        sv: Tamil
+        en: Tamil
+    - value: http://publications.europa.eu/resource/authority/language/THA
+      label:
+        sv: Thailändska
+        en: Thai
+    - value: http://publications.europa.eu/resource/authority/language/BOD
+      label:
+        sv: Tibetanska
+        en: Tibetan
+    - value: http://publications.europa.eu/resource/authority/language/TUR
+      label:
+        sv: Turkiska
+        en: Turkish
+    - value: http://publications.europa.eu/resource/authority/language/TUK
+      label:
+        sv: Turkmeniska
+        en: Turkmen
+    - value: http://publications.europa.eu/resource/authority/language/UKR
+      label:
+        sv: Ukrainska
+        en: Ukrainian
+    - value: http://publications.europa.eu/resource/authority/language/URD
+      label:
+        sv: Urdu
+        en: Urdu
+    - value: http://publications.europa.eu/resource/authority/language/UZB
+      label:
+        sv: Uzbekiska
+        en: Uzbek
+    - value: http://publications.europa.eu/resource/authority/language/0D0
+      label:
+        sv: Valensianska
+        en: Valencian
+    - value: http://publications.europa.eu/resource/authority/language/VIE
+      label:
+        sv: Vietnamesiska
+        en: Vietnamese
+    - value: http://publications.europa.eu/resource/authority/language/WLN
+      label:
+        sv: Vallonska
+        en: Walloon
+    - value: http://publications.europa.eu/resource/authority/language/CYM
+      label:
+        sv: Kymriska
+        en: Welsh
+    - value: http://publications.europa.eu/resource/authority/language/YID
+      label:
+        sv: Jiddisch
+        en: Yiddish
+    - value: http://publications.europa.eu/resource/authority/language/ZUL
+      label:
+        sv: Zulu
+        en: Zulu
+  validators: ignore_missing
+    
   
 - field_name: spatial_resolution_in_meters
   label:
@@ -858,19 +1243,19 @@ resource_fields:
   label: Status
   form_placeholder: status
   choices:
-  - value: Avvecklad  
+  - value: http://purl.org/adms/status/Deprecated  
     label: 
       sv: Avvecklad
       en: Discontinued 
-  - value: Färdig 
+  - value: http://purl.org/adms/status/Completed
     label: 
       sv: Färdig 
       en: Complete   
-  - value: Tillbakadragen
+  - value: http://purl.org/adms/status/Withdrawn
     label: 
       sv: Tillbakadragen
       en: Withdrawn  
-  - value: Under utveckling
+  - value: http://purl.org/adms/status/UnderDevelopment
     label: 
       sv: Under utveckling
       en: Under development    
