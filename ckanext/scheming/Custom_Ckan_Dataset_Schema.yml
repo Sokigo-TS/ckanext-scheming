@@ -567,7 +567,7 @@ dataset_fields:
   label: 
     sv: Uppdateringsfrekvens
     en: Update frequency
- choices:
+  choices:
     - value: http://publications.europa.eu/resource/authority/frequency/CONT
       label:
         sv: kontinuerlig
