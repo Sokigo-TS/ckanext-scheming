@@ -99,8 +99,14 @@
 	  {%- elif field.field_name == 'source' -%}
          {%- snippet 'snippets/Datasets.html', data=data -%}
 		
-	 {%- elif field.field_name == 'Utgivare' -%}
+	 {%- elif field.field_name == 'publisher_name' -%}
          {%- snippet 'snippets/Publisher_Data.html', data=data -%}
+		 
+	 {%- elif field.field_name == 'creator_name' -%}
+         {%- snippet 'snippets/Creator_Data.html', data=data -%}
+
+    {%- elif field.field_name == 'contact_name' -%}
+         {%- snippet 'snippets/Contact_Data.html', data=data -%}		 
 		 
 	  {%- else -%}
          {%- snippet 'scheming/snippets/form_field.html',

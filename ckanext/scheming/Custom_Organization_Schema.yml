@@ -39,7 +39,7 @@ fields:
 
 
 
-- field_name: Utgivare
+- field_name: publisher_name
   label: 
     sv: Utgivare
     en: Publisher
@@ -82,24 +82,66 @@ fields:
     readonly: true
 
 
+#- field_name: contact_uri
+#  label:  
+#    sv: Producent organisation
+#    en: Producer organisation
+#
+#- field_name: contact_name
+#  label:   
+#    sv: Producent namn
+#    en: Producer name
+#    
+#- field_name: contact_email
+#  label: 
+#    sv: Producent e-post
+#    en: Producer email
+#  form_placeholder: joe@example.com
+#  display_property: dc:contributor
+#  display_snippet: email.html
+#  display_email_name_field: contact_name
+  
+  
+- field_name: contact_name
+  label: 
+    sv: Informationsförvaltare
+    en: Maintainer
+  preset: select
+  form_snippet: snippets/Contact_Data.html
+  choices_helper: get_maintainer_from_json  
+
+
 - field_name: contact_uri
   label:  
-    sv: Producent organisation
-    en: Producer organisation
-
-- field_name: contact_name
-  label:   
-    sv: Producent namn
-    en: Producer name
+    sv: Informationsförvaltare URI
+    en: Maintainer URI
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
     
 - field_name: contact_email
   label: 
-    sv: Producent e-post
-    en: Producer email
-  form_placeholder: joe@example.com
-  display_property: dc:contributor
-  display_snippet: email.html
-  display_email_name_field: contact_name
+    sv: Informationsförvaltare e-post
+    en: Maintainer Email
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: contact_url
+  label: 
+    sv: Informationsförvaltare URL
+    en: Maintainer URL
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
+
+- field_name: contact_type
+  label: 
+    sv: Informationsförvaltare typ
+    en: Maintainer Type
+  form_snippet: text.html
+  form_attrs:
+    readonly: true
   
 
 - field_name: custom_form_fields
