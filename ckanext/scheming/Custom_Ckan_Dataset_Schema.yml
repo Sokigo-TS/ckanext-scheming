@@ -764,8 +764,8 @@ dataset_fields:
   label:
     sv: Värdefull datamängd
     en: High Value Dataset
-  preset: select # multiple_checkbox
-  validators: ignore_missing #scheming_multiple_choice
+  preset: select 
+  validators: ignore_missing 
   choices:
     - value: http://data.europa.eu/eli/reg_impl/2023/138/oj
       label:
@@ -780,6 +780,8 @@ dataset_fields:
   preset: multiple_select 
   validators: ignore_missing scheming_multiple_text
   choices:
+    - value: 
+      label:
     - value: http://data.europa.eu/bna/c_164e0bf5
       label:
         sv: Meteorologiska data
