@@ -1,9 +1,23 @@
 {% import 'macros/form.html' as form %}
 
+{%- set dcat_req_text = '<span style="color: red;">Obligatorisk enligt DCAT * </span>' if h.scheming_dcat_field_required(field) else "" -%}
+
 {%- if field.help_text -%}
-    {% set text = h.scheming_language_text(field.help_text) %}
+    {% set help_text = h.scheming_language_text(field.help_text) %}
+
+    {%- if h.scheming_dcat_field_required(field)  -%}
+      {% set help_text = "- " + help_text %}  
+    {%- endif -%}
+    
+    {% set full_text = (dcat_req_text|safe + " " + help_text)|safe if field.get('help_allow_html', false) else (dcat_req_text|safe + " " + help_text) %}
     {{- form.info(
-        text=text|safe if field.get('help_allow_html', false) else text,
+        text=full_text,
+        inline=field.get('help_inline', false)
+        ) -}}
+
+{%- elif dcat_req_text -%}
+    {{- form.info(
+        text=dcat_req_text|safe,
         inline=field.get('help_inline', false)
         ) -}}
 {%- endif -%}

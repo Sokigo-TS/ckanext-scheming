@@ -14,6 +14,7 @@ dataset_fields:
   form_placeholder: 
     sv: t.ex. en beskrivande titel
     en: eg. A descriptive title
+  dcat_required: true  
 
 - field_name: name
   label: URL
@@ -30,6 +31,8 @@ dataset_fields:
   form_placeholder:
     sv: t.ex. Några rader om datasetet  
     en: eg. Some useful notes about the data
+  dcat_required: true  
+    
 
 - field_name: tag_string
   label:
@@ -47,7 +50,8 @@ dataset_fields:
   preset: select
   choices_helper: get_publisher_from_json  
   help_text: Enhet (organisation) som ansvarar för att göra datamängden tillgänglig.
-
+  childs: publisher_uri, publisher_email, publisher_url, publisher_type
+  dcat_required: true
 
 - field_name: publisher_uri
   label: 
@@ -56,6 +60,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: publisher_email
   label: 
@@ -64,6 +69,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: publisher_url
   label: 
@@ -72,6 +78,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: publisher_type
   label: 
@@ -80,6 +87,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: license_id
   label:
@@ -130,7 +138,7 @@ dataset_fields:
   preset: select
   choices_helper: get_producer_from_json  
   help_text: Enhet (organisation) som är huvudansvarig för att producera datamängden.
-
+  childs: creator_uri, creator_email, creator_url, creator_type
 
 - field_name: creator_uri
   label: 
@@ -139,6 +147,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: creator_email
   label: 
@@ -147,6 +156,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: creator_url
   label: 
@@ -155,6 +165,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: creator_type
   label: 
@@ -163,6 +174,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 
 
@@ -173,7 +185,7 @@ dataset_fields:
   preset: select
   choices_helper: get_maintainer_from_json  
   help_text: Enhet (organisation) som aktivt förvaltar datamängden. Handhar ajourhållningsplaner m.m.
-
+  childs: contact_uri, contact_email, contact_url, contact_type
 
 - field_name: contact_uri
   label:  
@@ -182,6 +194,8 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
+  
     
 - field_name: contact_email
   label: 
@@ -190,6 +204,8 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
+  
 
 - field_name: contact_url
   label: 
@@ -198,6 +214,7 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
 
 - field_name: contact_type
   label: 
@@ -206,6 +223,8 @@ dataset_fields:
   form_snippet: text.html
   form_attrs:
     readonly: true
+  has_parent: true  
+
 
 ##- field_name: information_manager
 ##  label:
@@ -807,6 +826,7 @@ dataset_fields:
         sv: Statistik
         en: Statistics
   help_text: Anges bara om värdefull datamängd enligt "Kommissionens genomförandeförordning (EU) 2023/138"
+  dcat_required: true
 
 - field_name: spatial_uri
   label: 
@@ -979,7 +999,7 @@ resource_fields:
     sv: Webbadress för åtkomst
     en: Web address for access
   preset: resource_url_upload
-  
+  dcat_required: true
 
 - field_name: name
   label:

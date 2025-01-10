@@ -13,6 +13,8 @@ from ckanapi import LocalCKAN, NotFound, NotAuthorized
 
 all_helpers = {}
 
+import logging
+log = logging.getLogger(__name__)
 
 def helper(fn):
     """
@@ -75,8 +77,7 @@ def scheming_field_choices(field):
     :param field: scheming field definition
     :returns: choices iterable or None if not found.
     """
-   
-    
+       
     if 'choices' in field and field['choices'] is not None:
         
         return field['choices']
@@ -165,6 +166,33 @@ def scheming_field_required(field):
         return field['required']
     return 'not_empty' in field.get('validators', '').split()
 
+
+@helper
+def scheming_dcat_field_required(field):
+    """
+    Return field['dcat_required'] or guess based on validators if not present.
+    """
+    if 'dcat_required' in field:
+        return field['dcat_required']
+    return False
+
+@helper
+def scheming_get_child_fields(field):
+    """
+    Return child fields if any
+    """
+    if 'childs' in field:
+        return [value.strip() for value in field['childs'].split(",")] 
+    return []
+
+@helper
+def scheming_field_has_parent(field):
+    """
+    Return field['has_parent']
+    """
+    if 'has_parent' in field:
+        return field['has_parent']
+    return False
 
 @helper
 def scheming_dataset_schemas(expanded=True):

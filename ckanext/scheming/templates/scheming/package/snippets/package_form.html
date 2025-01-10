@@ -99,16 +99,11 @@
 	  {%- elif field.field_name == 'source' -%}
          {%- snippet 'snippets/Datasets.html', data=data -%}
 		
-	 {%- elif field.field_name == 'publisher_name' -%}
-         {%- snippet 'snippets/Publisher_Data.html', data=data -%}
-		 
-	 {%- elif field.field_name == 'creator_name' -%}
-         {%- snippet 'snippets/Creator_Data.html', data=data -%}
-
-    {%- elif field.field_name == 'contact_name' -%}
-         {%- snippet 'snippets/Contact_Data.html', data=data -%}		 
+	 {%- elif field.field_name == 'publisher_name' or field.field_name == 'creator_name' or field.field_name == 'contact_name' -%}
+         {%- snippet 'snippets/Custom_DropDown.html', data=data,  field=field -%}
 		 
 	  {%- else -%}
+       {%- if field.field_name is not none and h.scheming_field_has_parent(field) == False -%}
          {%- snippet 'scheming/snippets/form_field.html',
            field=field,
            data=data,
@@ -117,6 +112,8 @@
            entity_type='dataset',
            object_type=dataset_type
          -%}
+         {%- endif -%}
+
 		{%- endif -%}
     {%- endif -%}
   {%- endfor -%}
