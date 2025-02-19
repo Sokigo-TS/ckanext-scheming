@@ -137,7 +137,7 @@
     {%- set active_page = data.get('_form_page', 1) | int -%}
     {{ _('Update {page}').format(page=h.scheming_language_text(pages[active_page-1].title)) }}
   {%- elif pages -%}
-    {{ _('Next') }}
+    {{ _('Nästa') }}
   {%- else -%}
     {{ super() }}
   {%- endif -%}
