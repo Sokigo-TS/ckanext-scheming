@@ -129,10 +129,17 @@
 
 {% block metadata_fields %}
 
+<!-- A javascrpts method gets called from Sokigo plugin -> common.js file where it generates a GUId and assign to last extra field input -->
+
+<div class="w-100 text-end" style="margin-bottom: 10px; margin-top: -30px;">
+  <a id="generate-guid-btn" class="btn btn-link" style="font-size: 12px;">🔗 Generera GUID</a>
+</div>
+
 {% endblock %}
 
 {% block save_button_text %}
-  {%- set pages = h.scheming_get_dataset_form_pages(dataset_type) -%}
+
+{%- set pages = h.scheming_get_dataset_form_pages(dataset_type) -%}
   {%- if pages and form_style == 'edit' -%}
     {%- set active_page = data.get('_form_page', 1) | int -%}
     {{ _('Update {page}').format(page=h.scheming_language_text(pages[active_page-1].title)) }}
@@ -142,4 +149,3 @@
     {{ super() }}
   {%- endif -%}
 {% endblock %}
-

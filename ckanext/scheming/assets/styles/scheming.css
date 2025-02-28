@@ -39,3 +39,9 @@ a.btn.btn-multiple-remove {
 .radio-group label {
   font-weight: normal;
 }
+
+td {
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;  /* Allows text to wrap */
+}
