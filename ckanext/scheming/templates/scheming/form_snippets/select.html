@@ -3,24 +3,23 @@
 {%- set options=[] -%}
 {%- set form_restrict_choices_to=field.get('form_restrict_choices_to') -%}
 
-{%- if not h.scheming_field_required(field) or
-    field.get('form_include_blank_choice', false) -%}
+{%- if not h.scheming_field_required(field) or field.get('form_include_blank_choice', false) -%}
   {%- do options.append({'value': '', 'text': ''}) -%}
 {%- endif -%}
 {%- for c in h.scheming_field_choices(field) -%}
   {%- if not form_restrict_choices_to or c.value in form_restrict_choices_to -%}
     {%- do options.append({
-      'value': c.value|string,
+      'value': c.value|string if c.value is not none else '',
       'text': h.scheming_language_text(c.label)|safe }) -%}
   {%- endif -%}
 {%- endfor -%}
 {%- if field.get('sorted_choices') -%}
   {%- set options = options|sort(case_sensitive=false, attribute='text') -%}
 {%- endif -%}
-{%- if data[field.field_name] -%}
+{%- if data[field.field_name] is not none -%}
   {%- set option_selected = data[field.field_name]|string -%}
 {%- else -%}
-  {%- set option_selected = None -%}
+  {%- set option_selected = '' -%}
 {%- endif -%}
 
 {% call form.select(

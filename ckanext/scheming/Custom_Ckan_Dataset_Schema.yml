@@ -869,15 +869,15 @@ dataset_fields:
 
 - start_form_page:
     title: Informationsklassning
-    description:
-      Dessa fält används för informationsklassning av dataset
+    description: Dessa fält används för informationsklassning av dataset
 
   field_name: Riktighet
   preset: select
+  display_snippet: select.html
   label: 
     sv: Riktighet
     en: Reliability
-  choices:
+  choices: 
     - value: 0
       label:
         sv: 0 - Försumbar
@@ -899,11 +899,12 @@ dataset_fields:
         sv: 4 - Av betydelse för Sveriges säkerhet
         en: 4 - Of importance to Sweden's security
   help_text: Konsekvensnivå om informationstillgången inte är riktig (skyddad mot oönskad förändring)
-  validators: scheming_required int_validator
-  output_validators: int_validator
+  validators: scheming_required  int_validator 
+  output_validators: int_validator  
 
 - field_name: Tillgänglighet
   preset: select
+  display_snippet: select.html
   label: 
     sv: Tillgänglighet
     en: Availability
@@ -930,10 +931,12 @@ dataset_fields:
         en: 4 - Of importance to Sweden's security
   help_text: Konsekvensnivå om informationstillgången inte är åtkomlig och användbar inom förväntad tid och omfattning
   validators: scheming_required int_validator
-  output_validators: int_validator
+  output_validators: int_validator 
+
 
 - field_name: Fullständighet
   preset: select
+  display_snippet: select.html
   label: 
     sv: Fullständighet
     en: Completeness
@@ -960,10 +963,11 @@ dataset_fields:
         en: 4 - Of importance to Sweden's security
   help_text: Konsekvensnivå om informationsmängden inte är fullständig
   validators: scheming_required int_validator
-  output_validators: int_validator
+  output_validators: int_validator 
 
 - field_name: Konfidentialitet
   preset: select
+  display_snippet: select.html
   label: 
     sv: Konfidentialitet
     en: Confidentiality
@@ -989,8 +993,8 @@ dataset_fields:
         sv: 4 - Av betydelse för Sveriges säkerhet
         en: 4 - Of importance to Sweden's security
   help_text: Konsekvensnivå om informationstillgången tillgängliggörs eller avslöjas för obehöriga individer, objekt eller processer.
-  validators: scheming_required int_validator
-  output_validators: int_validator
+  validators: scheming_required  int_validator 
+  output_validators: int_validator 
 
 resource_fields:
 
