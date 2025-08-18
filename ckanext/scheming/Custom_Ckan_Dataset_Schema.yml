@@ -779,6 +779,71 @@ dataset_fields:
   validators: ignore_missing scheming_multiple_text
   help_text: Egenskapen hänvisar till en tillämpningsföreskrift eller annan specifikation.
 
+- field_name: theme
+  label:
+    sv: Kategori
+    en: Category
+  preset: multiple_select 
+  validators: ignore_missing scheming_multiple_text
+  choices:
+    - value: 
+      label:
+    - value: http://publications.europa.eu/resource/authority/data-theme/AGRI
+      label:
+        sv: Jordbruk, fiske, skogsbruk och livsmedel
+        en: Agriculture, fisheries, forestry and food
+    - value: http://publications.europa.eu/resource/authority/data-theme/ECON
+      label:
+        sv: Ekonomi och finans
+        en: Economy and finance
+    - value: http://publications.europa.eu/resource/authority/data-theme/EDUC
+      label:
+        sv: Utbildning, kultur och sport
+        en: Education, culture and sport
+    - value: http://publications.europa.eu/resource/authority/data-theme/ENER
+      label:
+        sv: Energi
+        en: Energy
+    - value: http://publications.europa.eu/resource/authority/data-theme/ENVI
+      label:
+        sv: Miljö
+        en: Environment
+    - value: http://publications.europa.eu/resource/authority/data-theme/GOVE
+      label:
+        sv: Regeringen och den offentliga sektorn
+        en: Government and public sector
+    - value: http://publications.europa.eu/resource/authority/data-theme/HEAL
+      label:
+        sv: Hälsa
+        en: Health
+    - value: http://publications.europa.eu/resource/authority/data-theme/INTR
+      label:
+        sv: Internationella frågor
+        en: International issues
+    - value: http://publications.europa.eu/resource/authority/data-theme/JUST
+      label:
+        sv: Rättvisa, rättsliga system och allmän säkerhet
+        en: Justice, legal system and public safety
+    - value: http://publications.europa.eu/resource/authority/data-theme/SOCI
+      label:
+        sv: Befolkning och samhälle
+        en: Population and society
+    - value: http://publications.europa.eu/resource/authority/data-theme/REGI
+      label:
+        sv: Regioner och städer
+        en: Regions and cities
+    - value: http://publications.europa.eu/resource/authority/data-theme/TECH
+      label:
+        sv: Vetenskap och teknik
+        en: Science and technology
+    - value: http://publications.europa.eu/resource/authority/data-theme/TRAN
+      label:
+        sv: Transport
+        en: Transport    
+  help_text: En kategori för datamängden. En datamängd kan associeras med flera teman.
+  dcat_required: true
+
+
 - field_name: applicable_legislation
   label:
     sv: Värdefull datamängd
