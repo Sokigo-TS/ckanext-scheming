@@ -23,7 +23,7 @@ fields:
     sv: t.ex. mitt-dataset
     en: eg. my-dataset
 
-- field_name: notes
+- field_name: description
   label:
     sv: Beskrivning  
     en: Description
