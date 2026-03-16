@@ -779,8 +779,11 @@ dataset_fields:
   label: 
     sv: Uppfyller
     en: Fulfills
-  preset: multiple_text
-  validators: ignore_missing scheming_multiple_text
+  #preset: multiple_text
+  #validators: ignore_missing scheming_multiple_text
+  preset: multiple_select
+  validators: ignore_missing scheming_multiple_choice
+  choices_helper: controlled_list_choices
   help_text: Egenskapen hänvisar till en tillämpningsföreskrift eller annan specifikation.
 
 - field_name: theme
