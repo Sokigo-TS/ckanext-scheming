@@ -7,7 +7,7 @@ import json
 import six
 
 from jinja2 import Environment
-from ckantoolkit import config, _
+from ckan.plugins.toolkit import config, _, h
 
 from ckanapi import LocalCKAN, NotFound, NotAuthorized
 
@@ -15,6 +15,7 @@ all_helpers = {}
 
 import logging
 log = logging.getLogger(__name__)
+from ckan.lib.navl.dictization_functions import missing
 
 def helper(fn):
     """
@@ -29,6 +30,19 @@ def lang():
     # is not set up fully when importing this module
     from ckantoolkit import h
     return h.lang()
+
+def clear_multiple_sentinel(key, data, errors, context):
+    value = data.get(key)
+
+    if value is missing:
+        return
+
+    if isinstance(value, str):
+        value = [value]
+    elif not isinstance(value, list):
+        return
+
+    data[key] = [v for v in value if v != '']
 
 
 @helper
@@ -77,12 +91,9 @@ def scheming_field_choices(field):
     :param field: scheming field definition
     :returns: choices iterable or None if not found.
     """
-       
     if 'choices' in field and field['choices'] is not None:
-        
         return field['choices']
     if 'choices_helper' in field and field['choices_helper'] is not None:
-        
         from ckantoolkit import h
         choices_fn = getattr(h, field['choices_helper'])
         return choices_fn(field)
@@ -348,11 +359,11 @@ def date_tz_str_to_datetime(date_str):
     tz_split = re.split('([Z+-])', split[1])
 
     date = split[0] + 'T' + tz_split[0]
-    time_tuple = re.split('[^\d]+', date, maxsplit=5)
+    time_tuple = re.split(r'[^\d]+', date, maxsplit=5)
 
     # Extract seconds and microseconds
     if len(time_tuple) >= 6:
-        m = re.match('(?P<seconds>\d{2})(\.(?P<microseconds>\d{3,6}))?$',
+        m = re.match(r'(?P<seconds>\d{2})(\.(?P<microseconds>\d{3,6}))?$',
                      time_tuple[5])
         if not m:
             raise ValueError('Unable to parse %s as seconds.microseconds' %
@@ -366,7 +377,7 @@ def date_tz_str_to_datetime(date_str):
     # Apply the timezone offset
     if len(tz_split) > 1 and not tz_split[1] == 'Z':
         tz = tz_split[2]
-        tz_tuple = re.split('[^\d]+', tz)
+        tz_tuple = re.split(r'[^\d]+', tz)
 
         if tz_tuple[0] == '':
             raise ValueError('Unable to parse timezone')
@@ -442,8 +453,6 @@ def scheming_render_from_string(source, **kwargs):
     # Temporary solution for rendering defaults and including the CKAN
     # helpers. The core CKAN lib does not include a string rendering
     # utility that works across 2.6-2.8.
-    from ckantoolkit import h
-
     env = Environment(autoescape=True)
     template = env.from_string(
         source,
@@ -478,3 +487,21 @@ def scheming_flatten_subfield(subfield, data):
         for k in record:
             flat[prefix + k] = record[k]
     return flat
+
+
+@helper
+def scheming_missing_required_fields(pages, data=None, package_id=None):
+    if package_id:
+        try:
+            data = LocalCKAN().action.package_show(id=package_id)
+        except (NotFound, NotAuthorized):
+            pass
+    if data is None:
+        data = {}
+    missing = []
+    for p in pages:
+        missing.append([
+            f['field_name'] for f in p['fields']
+            if f.get('required') and not data.get(f['field_name'])
+        ])
+    return missing

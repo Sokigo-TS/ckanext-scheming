@@ -45,3 +45,21 @@ td {
   word-break: break-word;
   white-space: normal;  /* Allows text to wrap */
 }
+
+fieldset.checkboxes label {
+  font-weight: normal;
+  display: block;
+}
+fieldset.checkboxes label:after {
+  content: none;
+}
+fieldset.checkboxes label input {
+  width: auto;
+  top: 0;
+}
+
+
+.d-none-soft{
+  display: none;
+}
+

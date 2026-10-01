@@ -22,7 +22,7 @@ try:
 except ImportError:  # CKAN <= 2.5
     core_helper_functions = None
 
-from ckantoolkit import (
+from ckan.plugins.toolkit import (
     DefaultDatasetForm,
     DefaultGroupForm,
     DefaultOrganizationForm,
@@ -103,8 +103,6 @@ class _SchemingMixin(object):
 
     @staticmethod
     def _load_presets(config):
-        if _SchemingMixin._presets is not None:
-            return
 
         presets = reversed(
             config.get(
@@ -164,7 +162,7 @@ class _GroupOrganizationMixin(object):
                 group_type = c.group_dict['type']
             else:
                 group_type = self.UNSPECIFIED_GROUP_TYPE
-        c.scheming_schema = self._schemas[group_type]
+        c.scheming_schema = self._expanded_schemas[group_type]
         c.group_type = group_type
         c.scheming_fields = c.scheming_schema['fields']
 
@@ -176,6 +174,16 @@ class _GroupOrganizationMixin(object):
                 thing=thing, t=t)}
         scheming_schema = self._expanded_schemas[t]
         scheming_fields = scheming_schema['fields']
+
+        before = scheming_schema.get('before_validators')
+        after = scheming_schema.get('after_validators')
+
+        if before:
+            schema['__before'] = validation.validators_from_string(
+                before, None, scheming_schema)
+        if after:
+            schema['__after'] = validation.validators_from_string(
+                after, None, scheming_schema)
 
         get_validators = (
             _field_output_validators_group
@@ -222,6 +230,12 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
 
     def package_types(self):
         return list(self._schemas)
+
+    def resource_validation_dependencies(self, package_type):
+        # Compatibility with https://github.com/ckan/ckan/pull/8421
+        schema = self._schemas.get(package_type, {})
+        dfr = schema.get('draft_fields_required', True)
+        return [] if dfr else ['state']
 
     def validate(self, context, data_dict, schema, action):
         """
@@ -279,7 +293,7 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
                 del data[(f,)]
 
         if action_type == 'show':
-            if composite_convert_fields:
+            if composite_convert_fields and data_dict.get("extras"):
                 for ex in data_dict['extras']:
                     if ex['key'] in composite_convert_fields:
                         data_dict[ex['key']] = json.loads(ex['value'])
@@ -288,21 +302,10 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
                     if ex['key'] not in composite_convert_fields
                 ]
         else:
-            dataset_composite = {
-                f['field_name']
-                for f in scheming_schema['dataset_fields']
-                if 'repeating_subfields' in f
-            }
-            if dataset_composite:
-                expand_form_composite(data_dict, dataset_composite)
-            resource_composite = {
-                f['field_name']
-                for f in scheming_schema['resource_fields']
-                if 'repeating_subfields' in f
-            }
-            if resource_composite and 'resources' in data_dict:
+            expand_form_composite(data_dict, scheming_schema['dataset_fields'])
+            if 'resources' in data_dict:
                 for res in data_dict['resources']:
-                    expand_form_composite(res, resource_composite.copy())
+                    expand_form_composite(res, scheming_schema['resource_fields'])
             # convert composite package fields to extras so they are stored
             if composite_convert_fields:
                 schema = dict(
@@ -375,37 +378,57 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
         return bp
 
 
-def expand_form_composite(data, fieldnames):
+def expand_form_composite(data, schema):
     """
     when submitting dataset/resource form composite fields look like
     "field-0-subfield..." convert these to lists of dicts
     """
+    fields = {(): set()}
+
+    def recur_repeating_subfields(path, field):
+        if 'repeating_subfields' in field:
+            fields.setdefault(path, set()).add(field['field_name'])
+            for subfield in field['repeating_subfields']:
+                recur_repeating_subfields((*path, field['field_name']), subfield)
+
+    for field in schema:
+        recur_repeating_subfields((), field)
+
     # if "field" exists, don't look for "field-0-subfield"
-    fieldnames -= set(data)
-    if not fieldnames:
+    fields[()] -= set(data)
+    if not fields[()]:
         return
     indexes = {}
     for key in sorted(data):
         if '-' not in key:
             continue
         parts = key.split('-')
-        if parts[0] not in fieldnames:
-            continue
-        if parts[1] not in indexes:
-            indexes[parts[1]] = len(indexes)
-        comp = data.setdefault(parts[0], [])
-        parts[1] = indexes[parts[1]]
-        try:
+        path = ()
+        fieldpath = ()
+        parent_data = data
+        while len(parts) > 2:
+            field, index, *parts = parts
+            if field not in fields[fieldpath]:
+                parts = (field, index, *parts)
+                break
+            fieldpath = (*fieldpath, field)
+            path = (*path, field)
+            if index not in indexes.setdefault(path, {}):
+                indexes[path][index] = len(indexes[path])
+            comp = parent_data.setdefault(field, [])
+            index = indexes[path][index]
+
             try:
-                comp[int(parts[1])]['-'.join(parts[2:])] = data[key]
-                del data[key]
+                parent_data = comp[index]
             except IndexError:
                 comp.append({})
-                comp[int(parts[1])]['-'.join(parts[2:])] = data[key]
-                del data[key]
-        except (IndexError, ValueError):
-            pass  # best-effort only
+                parent_data = comp[index]
 
+            path = (*path, index)
+
+        if parent_data is not data:
+            parent_data['-'.join(parts)] = data[key]
+            del data[key]
 
 
 class SchemingGroupsPlugin(p.SingletonPlugin, _GroupOrganizationMixin,
@@ -450,6 +473,8 @@ class SchemingOrganizationsPlugin(p.SingletonPlugin, _GroupOrganizationMixin,
     FALLBACK_OPTION = 'scheming.organization_fallback'
     SCHEMA_TYPE_FIELD = 'organization_type'
     UNSPECIFIED_GROUP_TYPE = 'organization'
+
+    is_organization = True
 
     @classmethod
     def _store_instance(cls, self):
@@ -650,6 +675,11 @@ def _expand(schema, field):
             raise SchemingException('preset \'{}\' not defined'.format(preset))
         field = dict(_SchemingMixin._presets[preset], **field)
 
+    if 'repeating_subfields' in field:
+        field['repeating_subfields'] = [
+            _expand(schema, subfield)
+            for subfield in field['repeating_subfields']
+        ]
     return field
 
 
