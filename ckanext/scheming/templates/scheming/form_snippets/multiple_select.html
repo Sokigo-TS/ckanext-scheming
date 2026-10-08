@@ -29,7 +29,7 @@
     {%- for val, label in choices -%}
       <option id="field-{{ field.field_name }}-{{ val }}"
           value="{{ val }}"
-          {{"selected " if val in data[field.field_name] }} />
+          {{"selected " if data[field.field_name] and val in data[field.field_name] }} />
         {{ label }}
       </option>
     {%- endfor -%}

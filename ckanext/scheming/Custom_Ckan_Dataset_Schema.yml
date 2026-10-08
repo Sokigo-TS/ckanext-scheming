@@ -782,7 +782,8 @@ dataset_fields:
   #preset: multiple_text
   #validators: ignore_missing scheming_multiple_text
   preset: multiple_select
-  validators: ignore_missing scheming_multiple_choice
+  form_snippet: multiple_select_clearable.html
+  validators: ignore_missing clear_multiple_sentinel scheming_multiple_choice
   choices_helper: controlled_list_choices
   help_text: Egenskapen hänvisar till en tillämpningsföreskrift eller annan specifikation.
 

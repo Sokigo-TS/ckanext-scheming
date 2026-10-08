@@ -28,7 +28,6 @@ def helper(fn):
 def lang():
     # access this function late in case ckan
     # is not set up fully when importing this module
-    from ckantoolkit import h
     return h.lang()
 
 def clear_multiple_sentinel(key, data, errors, context):
@@ -94,7 +93,6 @@ def scheming_field_choices(field):
     if 'choices' in field and field['choices'] is not None:
         return field['choices']
     if 'choices_helper' in field and field['choices_helper'] is not None:
-        from ckantoolkit import h
         choices_fn = getattr(h, field['choices_helper'])
         return choices_fn(field)
 

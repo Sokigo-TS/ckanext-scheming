@@ -237,6 +237,11 @@ class SchemingDatasetsPlugin(p.SingletonPlugin, DefaultDatasetForm,
         dfr = schema.get('draft_fields_required', True)
         return [] if dfr else ['state']
 
+    def get_validators(self):
+        validators = dict(validation.all_validators)
+        validators['clear_multiple_sentinel'] = (helpers.clear_multiple_sentinel)
+        return validators
+
     def validate(self, context, data_dict, schema, action):
         """
         Validate and convert for package_create, package_update and
